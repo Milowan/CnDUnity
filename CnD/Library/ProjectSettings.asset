@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 18
-  productGUID: 25b03f7ef8c028d439b37a081f1c8f99
+  productGUID: fa406f64f69807d4db8baef8a4307350
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -590,10 +590,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 919ac8a5-a6f6-40e6-b8c5-e57e5c33e204
+  cloudProjectId: 
   framebufferDepthMemorylessMode: 0
-  projectName: CnD (1)
-  organizationId: milowan
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
