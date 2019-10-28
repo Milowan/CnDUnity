@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Enemy : Character
 {
+    public float maxForce;
     private Vector3 target;
     private Vector3 current;
+    private Vector3 currentV;
     private Vector3 correction;
 
     private Transform pos;
@@ -21,17 +23,22 @@ public class Enemy : Character
     // Update is called once per frame
     void Update()
     {
-        current = body.velocity;
+        currentV = body.velocity;
     }
 
     private void Steer()
     {
-        correction = current - target;
+        correction = target - current;
+        correction = correction.normalized * movSpeed;
+        correction -= currentV;
+        correction = Vector3.ClampMagnitude(correction, maxForce);
+        currentV = Vector3.ClampMagnitude(currentV + correction, movSpeed);
+        pos.position += currentV;
     }
 
     private void Wander()
     {
-
+        //target = Vector3();
     }
 
     private void Chase()
