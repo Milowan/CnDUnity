@@ -5,7 +5,9 @@ using UnityEngine;
 public class Enemy : Character
 {
     public float maxForce;
-    private Vector3 target;
+    public float wanderRangeMax;
+    public float wanderRangeMin;
+    private Vector3 targetPos;
     private Vector3 current;
     private Vector3 currentV;
     private Vector3 correction;
@@ -28,7 +30,7 @@ public class Enemy : Character
 
     private void Steer()
     {
-        correction = target - current;
+        correction = targetPos - current;
         correction = correction.normalized * movSpeed;
         correction -= currentV;
         correction = Vector3.ClampMagnitude(correction, maxForce);
@@ -38,11 +40,13 @@ public class Enemy : Character
 
     private void Wander()
     {
-        //target = Vector3();
+        targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f);
+        current = body.position;
     }
 
     private void Chase()
     {
-
+        targetPos = target.GetComponent<Transform>().position;
+        current = body.position;
     }
 }

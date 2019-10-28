@@ -19,6 +19,25 @@ public class Character : MonoBehaviour
     public float movSpeed;
 
     //private Stats stats;
-    private float combatTimer;
-    private Character target;
+    protected float combatTimer;
+    protected Character target;
+
+    protected virtual void Attack()
+    {
+
+    }
+
+    protected void TakeDamage(float dmg)
+    {
+        health -= dmg;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    protected virtual void Die()
+    {
+
+    }
 }
