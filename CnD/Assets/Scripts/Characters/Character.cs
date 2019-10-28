@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public enum CharacterStatus
     {
-        
-    }
+        IDLE,
+        FIGHTING,
+        CHASING,
+        MOVING,
+        DEAD
+    };
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public CharacterStatus status;
+    public float maxHealth;
+    private float health;
+    public float movSpeed;
+
+    //private Stats stats;
+    private float combatTimer;
+    private Character target;
 }
