@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884405831d1fa3840bc69ca37fe15859, type: 3}
   m_Name: Bow_2
   m_EditorClassIdentifier: 
+  amount: 0
   ID: 2
   uiDisplay: {fileID: 21300000, guid: 22a76b8f46dc8b340ab9ffc69c3b4c1b, type: 3}
   type: 0
-  description: 
-  range: 0
-  Damage: 0
-  speed: 0
+  description: A Sliver-lined bow
+  range: 5
+  Damage: 5
+  speed: 4
   STRBonus: 0
   DexBonus: 0
   ConBonus: 0

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9145d84db9df9d498dcdbd24b33ee19, type: 3}
   m_Name: Helm_2
   m_EditorClassIdentifier: 
+  amount: 0
   ID: 5
   uiDisplay: {fileID: 21300000, guid: eae74027eb6022d4cbac59190605dd5a, type: 3}
   type: 1
-  description: 
+  description: An Iron helmet
   STRBonus: 0
   DexBonus: 0
   ConBonus: 0
