@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     private Player player;
-    virtual public void OnTrigger(Collider other)
+    public void OnTrigger(Collider other)
     {
         if(Input.GetButtonDown("Interact"))
         {
