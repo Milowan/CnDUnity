@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dias : Interactable
+public class Dais : Interactable
 {
     public bool gemOneSet = false;
     public bool gemTwoSet = false;
@@ -11,19 +11,19 @@ public class Dias : Interactable
 
     public override void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("DiasOne") && !gemOneSet)
+        if (other.CompareTag("DaisOne") && !gemOneSet)
         {
 
         }
-        if (other.CompareTag("DiasTwo") && !gemTwoSet)
+        if (other.CompareTag("DaisTwo") && !gemTwoSet)
         {
 
         }
-        if (other.CompareTag("DiasThree") && !gemThreeSet)
+        if (other.CompareTag("DaisThree") && !gemThreeSet)
         {
 
         }
-        if (other.CompareTag("DiasFour") && !gemFourSet)
+        if (other.CompareTag("DaisFour") && !gemFourSet)
         {
 
         }

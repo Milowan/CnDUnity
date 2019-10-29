@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FinalDoor : Dias
+public class FinalDoor : MonoBehaviour 
 {
+    
+    Dais gemActive;
     void finalDoorActivated()
     {
-        if(gemOneSet && gemTwoSet && gemThreeSet && gemFourSet)
+        if(gemActive.gemOneSet && gemActive.gemTwoSet && gemActive.gemThreeSet && gemActive.gemFourSet)
         {
 
         }
     }
+
 }
