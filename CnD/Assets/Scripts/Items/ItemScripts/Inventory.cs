@@ -1,53 +1,74 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+using System.Runtime.Serialization;
 
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
-public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver  
+public class InventoryObject : ScriptableObject
 {
-
+    public string savePath;
+    public Inventory container;
     public ItemDatabaseObj database;
     // List to store all the items in the inventory
-    public List<InventorySlot> container = new List<InventorySlot>();
     // Add the item to the inventory, we search for the item in the list, if found we add it to the slot that had the item in it
     // if not, we creat a new inventory slot with that item in it.
-    public void AddItem(ItemObject _item, int _amount)
+    public void AddItem(item _item, int _amount)
     {
-        for (int i = 0; i < container.Count; i++)
+        for (int i = 0; i < container.items.Count; i++)
         {
-            if (container[i].item == _item)
+            if (container.items[i].item == _item)
             {
-                container[i].AddAmount(_amount);
+                container.items[i].AddAmount(_amount);
                 return;
             }
         }
-        container.Add(new InventorySlot(database.GetId[_item], _item, _amount));
+        container.items.Add(new InventorySlot(_item.ID, _item, _amount));
     }
-    
-    public void OnAfterDeserialize()
+    [ContextMenu("Save")]
+    public void Save()
     {
-        // For Get the item ID each item in the container
-        for(int i = 0; i < container.Count; i++)
+        IFormatter formatter = new BinaryFormatter();
+        Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath, savePath), FileMode.Create, FileAccess.Write);
+        formatter.Serialize(stream, container);
+        stream.Close();
+    }
+    [ContextMenu("Load")]
+    public void Load()
+    {
+        if (File.Exists(string.Concat(Application.persistentDataPath, savePath)))
         {
-            container[i].item = database.GetItem[container[i].ID];
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath, savePath), FileMode.Open, FileAccess.Read);
+            container = (Inventory)formatter.Deserialize(stream);
+            stream.Close();
         }
+
     }
-    // We dont need to do anything before Seriaalization
-    public void OnBeforeSerialize()
+    [ContextMenu("Clear")]
+    public void Clear()
     {
+        container = new Inventory();
     }
+
 }
 
+[System.Serializable]
+public class Inventory
+{
+    public List<InventorySlot> items = new List<InventorySlot>();
 
+}
 [System.Serializable]
 public class InventorySlot
 {
     // ID is used to fine the item in the database
     public int ID;
     // An inventory slot that takes an item and an amount to store in the inventory list
-    public ItemObject item;
+    public item item;
     public int amount;
-    public InventorySlot(int _id, ItemObject _item, int _amount)
+    public InventorySlot(int _id, item _item, int _amount)
     {
         // get the proper information for the item.
         ID = _id;

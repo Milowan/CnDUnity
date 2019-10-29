@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b454fcf2470e8484ab42aa761c646681, type: 3}
   m_Name: Arrow
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1116149881891042917, guid: 61faf448a70e82f449743a047912836d, type: 3}
+  ID: 0
+  uiDisplay: {fileID: 21300000, guid: e630ca5e6b4165648969cd1b1f49f10d, type: 3}
   type: 2
   description: 
   healValue: 0

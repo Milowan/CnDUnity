@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b454fcf2470e8484ab42aa761c646681, type: 3}
   m_Name: Potion_3
   m_EditorClassIdentifier: 
-  prefab: {fileID: 486339042228230611, guid: 15250b5bff1858243bd6f6f5e2b7fe6b, type: 3}
+  ID: 9
+  uiDisplay: {fileID: 21300000, guid: 6fd778f8664e4c643ab2143407a1ce0c, type: 3}
   type: 2
   description: 
   healValue: 30

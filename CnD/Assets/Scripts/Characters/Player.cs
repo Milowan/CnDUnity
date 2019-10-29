@@ -32,10 +32,10 @@ public class Player : Character
     private void OnTriggerEnter(Collider other)
     {
         // If the player collides with an Item, and if our slotLimit is less than 10, 1 item gets added to the inventory
-        var item = other.GetComponent<item>();
+        var item = other.GetComponent<Grounditem>();
         if (item && slotLimit < 10)
         {
-            inventory.AddItem(item._item, 1);
+            inventory.AddItem(new item(item._item), 1);
             Destroy(other.gameObject);
             slotLimit++;
         }
@@ -45,25 +45,25 @@ public class Player : Character
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        // If the player collides with an Item, and if our slotLimit is less than 10, 1 item gets added to the inventory
-        var item = other.GetComponent<item>();
-        if (item && slotLimit < 10)
-        {
-            inventory.AddItem(item._item, 1);
-            Destroy(other.gameObject);
-            slotLimit++;
-        }
-        else
-        {
-            Debug.Log("Cant Add Item");
-        }
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    // If the player collides with an Item, and if our slotLimit is less than 10, 1 item gets added to the inventory
+    //    var item = other.GetComponent<item>();
+    //    if (item && slotLimit < 10)
+    //    {
+    //        inventory.AddItem(item._item, 1);
+    //        Destroy(other.gameObject);
+    //        slotLimit++;
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("Cant Add Item");
+    //    }
 
-    }
+    //}
     // We need to clear the inventory when the game closes, or the game will remember our inventory from the previous play and produces serios problems
     private void OnApplicationQuit()
     {
-        inventory.container.Clear();
+        inventory.container.items.Clear();
     }
 }

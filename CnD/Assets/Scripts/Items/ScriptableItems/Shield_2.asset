@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c771579e7c684ae458ca10c4d6b09fbe, type: 3}
   m_Name: Shield_2
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1080382706910141425, guid: 1c9a0488129321b49b8e364523b8f276, type: 3}
+  ID: 11
+  uiDisplay: {fileID: 21300000, guid: e1c9146fec8512e4ea32ee324d84da3a, type: 3}
   type: 1
   description: 
   STRBonus: 0

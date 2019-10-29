@@ -9,7 +9,6 @@ public class ItemDatabaseObj : ScriptableObject, ISerializationCallbackReceiver 
     // an array that holds all of the items in the game.
     public ItemObject[] Items;
     // Dictionary to easily import an item and easily return that item
-    public Dictionary<ItemObject, int> GetId = new Dictionary<ItemObject, int>();
     public Dictionary<int, ItemObject> GetItem = new Dictionary<int, ItemObject>();
 
 
@@ -18,17 +17,15 @@ public class ItemDatabaseObj : ScriptableObject, ISerializationCallbackReceiver 
     {
         // When unity serealises the scriptable object, it will automatically populate the dictionary
         // with refrence values based off the items array we create 
-        GetId = new Dictionary<ItemObject, int>();
-        GetItem = new Dictionary<int, ItemObject>();
-
         for (int i = 0; i < Items.Length; i++)
         {
-            GetId.Add(Items[i], i);
+            Items[i].ID = i;
             GetItem.Add(i, Items[i]);
         }
     }
 
     public void OnBeforeSerialize()
     {
+        GetItem = new Dictionary<int, ItemObject>();
     }
 }

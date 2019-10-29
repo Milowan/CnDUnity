@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DisplayInventory : MonoBehaviour
 {
+
+    public GameObject inventoryPrefab; // Set a default prefab so we only need to change the sprite and not an entire prefab
     public InventoryObject inventory;
     public int slotLimit;
 
@@ -24,29 +27,31 @@ public class DisplayInventory : MonoBehaviour
 
     void Update()
     {
-       UpdateDisplay();
+        UpdateDisplay();
     }
-    // Upon picking up an item, if the number of slots is less than our slot limit,  we need to check through the inventory slots for the item, if we find it, we increment the amount displayed by 1,
+    //Upon picking up an item, if the number of slots is less than our slot limit,  we need to check through the inventory slots for the item, if we find it, we increment the amount displayed by 1,
     // if we dont find the item, we create a new itemSlot, pass in the items information and display it within the inventory, beside the previous inventory slot
-    // or below if we are extending the inventory beyond 1 row.
-    public void UpdateDisplay()
+    //or below if we are extending the inventory beyond 1 row.
+        public void UpdateDisplay()
     {
         int slots;
-        slots = inventory.container.Count;
-        if (slots < slotLimit + 1 )
+        slots = inventory.container.items.Count;
+        if (slots < slotLimit + 1)
         {
-            for (int i = 0; i < inventory.container.Count; i++)
+            for (int i = 0; i < inventory.container.items.Count; i++)
             {
-                if (itemsDislayed.ContainsKey(inventory.container[i]))
+                InventorySlot slot = inventory.container.items[i];
+                if (itemsDislayed.ContainsKey(slot))
                 {
-                    itemsDislayed[inventory.container[i]].GetComponentInChildren<TextMeshProUGUI>().text = inventory.container[i].amount.ToString("n0");
+                    itemsDislayed[inventory.container.items[i]].GetComponentInChildren<TextMeshProUGUI>().text = slot.amount.ToString("n0");
                 }
                 else
                 {
-                    var obj = Instantiate(inventory.container[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
+                    var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
+                    obj.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.database.GetItem[slot.item.ID].uiDisplay;
                     obj.GetComponent<RectTransform>().localPosition = GetPosiotion(i);
-                    obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.container[i].amount.ToString("n0");
-                    itemsDislayed.Add(inventory.container[i], obj);
+                    obj.GetComponentInChildren<TextMeshProUGUI>().text = slot.amount.ToString("n0");
+                    itemsDislayed.Add(slot, obj);
                 }
             }
         }
@@ -55,15 +60,19 @@ public class DisplayInventory : MonoBehaviour
     public void CreateDisplay()
     {
         int slots;
-        slots = inventory.container.Count;
+        slots = inventory.container.items.Count;
         if (slots < slotLimit + 1)
         {
-            for (int i = 0; i < inventory.container.Count; i++)
+
+            for (int i = 0; i < inventory.container.items.Count; i++)
             {
-                var obj = Instantiate(inventory.container[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
+                InventorySlot slot = inventory.container.items[i];
+
+                var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
+                obj.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.database.GetItem[slot.item.ID].uiDisplay;
                 obj.GetComponent<RectTransform>().localPosition = GetPosiotion(i);
-                obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.container[i].amount.ToString("n0");
-                itemsDislayed.Add(inventory.container[i], obj);
+                obj.GetComponentInChildren<TextMeshProUGUI>().text = slot.amount.ToString("n0");
+                itemsDislayed.Add(slot, obj);
 
             }
         }
@@ -74,6 +83,6 @@ public class DisplayInventory : MonoBehaviour
     }
     public Vector3 GetPosiotion(int i)
     {   // Set the position of the inventory slot, and the space beside and below the next inventory slot.
-        return new Vector3(XSTART + X_SPACE_BETWEEN_ITEM *(i % NUMBER_OF_COLUMN), YSTART + (-Y_SPACE_BETWEEN_ITEMS *(i/NUMBER_OF_COLUMN)), 0f);
+        return new Vector3(XSTART + X_SPACE_BETWEEN_ITEM * (i % NUMBER_OF_COLUMN), YSTART + (-Y_SPACE_BETWEEN_ITEMS * (i / NUMBER_OF_COLUMN)), 0f);
     }
 }

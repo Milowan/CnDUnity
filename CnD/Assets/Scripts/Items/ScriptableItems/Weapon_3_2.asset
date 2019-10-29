@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3cdec2fdd988f4788f6691b744a0eb, type: 3}
   m_Name: Weapon_3_2
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7844892255679074807, guid: d7eafb371462afe4da56a62fc78eae30, type: 3}
+  ID: 18
+  uiDisplay: {fileID: 21300000, guid: 944b7f70a4970c345997667e5759f295, type: 3}
   type: 0
   description: 
   range: 0
