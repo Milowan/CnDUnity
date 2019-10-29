@@ -31,6 +31,10 @@ public class Player : Character
         {
           interactable = response.gameObject.GetComponent<Interactable>();
         }
+        if (response.gameObject.tag == "Enemy")
+        {
+            target = response.gameObject.GetComponent<Enemy>();
+        }
     }
 
     private void OnTriggerExit(Collider response)
@@ -39,6 +43,16 @@ public class Player : Character
         {
             interactable = null;
         }
+    }
+
+    protected override void Attack()
+    {
+
+    }
+
+    protected override void Die()
+    {
+        //restart level
     }
 
     private void Interact()

@@ -11,6 +11,8 @@ public class Enemy : Character
     private Vector3 current;
     private Vector3 currentV;
     private Vector3 correction;
+    public float movDelay;
+    private float tDelayed;
 
     private Transform pos;
     private Rigidbody body;
@@ -20,12 +22,46 @@ public class Enemy : Character
     {
         pos = GetComponent<Transform>();
         body = GetComponent<Rigidbody>();
+        tDelayed = movDelay;
     }
 
     // Update is called once per frame
     void Update()
     {
         currentV = body.velocity;
+        if (tDelayed >= movDelay)
+        {
+            if (status == IDLE)
+            {
+                Wander();
+            }
+            else if (status == CHASING)
+            {
+                Chase();
+            }
+        }
+        else
+        {
+            tDelayed += Time.deltaTime;
+        }
+    }
+
+    private void OnTriggerEnter(Collider response)
+    {
+        if (response.gameObject.tag == "Player")
+        {
+            status = CHASING;
+            target = response.gameObject.GetComponent<Character>();
+        }
+    }
+
+    private void OnTriggerExit(Collider response)
+    {
+        if (response.gameObject.tag == "Player")
+        {
+            status = IDLE;
+            target = null;
+        }
     }
 
     private void Steer()
@@ -36,17 +72,26 @@ public class Enemy : Character
         correction = Vector3.ClampMagnitude(correction, maxForce);
         currentV = Vector3.ClampMagnitude(currentV + correction, movSpeed);
         pos.position += currentV;
+
+        if (pos.position == targetPos)
+        {
+            tDelayed = 0f;
+        }
     }
 
     private void Wander()
     {
         targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f);
         current = body.position;
+        Steer();
     }
 
     private void Chase()
     {
         targetPos = target.GetComponent<Transform>().position;
         current = body.position;
+        Steer();
     }
+
+
 }
