@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Player player;
+    public bool isOn = false;
+    virtual public void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
