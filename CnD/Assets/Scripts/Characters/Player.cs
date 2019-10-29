@@ -10,7 +10,7 @@ public class Player : Character
     //private Armour *armour;
     //private Helmet *helmet;
     //private Inventory *inventory;
-    //private Interactable *interactable;
+    private Interactable *interactable;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +27,25 @@ public class Player : Character
 
     private void OnTriggerEnter(Collider response)
     {
+        if (response.gameObject.tag == "Interactable")
+        {
+          interactable = response.gameObject.GetComponent<Interactable>();
+        }
+    }
 
+    private void OnTriggerExit(Collider response)
+    {
+        if (response.gameObject.GetComponent<Interactable>() == interactable)
+        {
+            interactable = null;
+        }
+    }
+
+    private void Interact()
+    {
+        if (interactable != null)
+        {
+        //  interactable.act();
+        }
     }
 }
