@@ -10,7 +10,7 @@ public class Player : Character
     //private Armour *armour;
     //private Helmet *helmet;
     //private Inventory *inventory;
-    private Interactable *interactable;
+    private Interactable interactable;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +45,7 @@ public class Player : Character
     {
         if (interactable != null)
         {
-        //  interactable.act();
+            interactable.act();
         }
     }
 }
