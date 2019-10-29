@@ -13,6 +13,7 @@ public class Character : MonoBehaviour
         DEAD
     };
 
+    public Stats stats;
     public CharacterStatus status;
     public float maxHealth;
     private float health;
@@ -21,6 +22,11 @@ public class Character : MonoBehaviour
     //private Stats stats;
     protected float combatTimer;
     protected Character target;
+
+    protected virtual void SetStats()
+    {
+
+    }
 
     protected virtual void Attack()
     {
