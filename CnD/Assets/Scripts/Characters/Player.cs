@@ -38,14 +38,14 @@ public class Player : Character
         }
     }
 
-    private void OnTriggerEnter(Collider response)
+    private void OnTriggerEnter(Collider other)
     {
         // If the player collides with an Item, and if our slotLimit is less than 10, 1 item gets added to the inventory
-        var item = response.GetComponent<Grounditem>();
-        if (item && slotLimit < 10)
+        var item = other.GetComponent<Grounditem>();
+        if (other.gameObject.CompareTag("Item") && item && slotLimit < 10)
         {
             inventory.AddItem(new item(item._item), 1);
-            Destroy(response.gameObject);
+            Destroy(other.gameObject);
             slotLimit++;
         }
         else
@@ -53,13 +53,13 @@ public class Player : Character
             Debug.Log("Cant Add Item");
         }
         
-         if (response.gameObject.tag == "Interactable")
+         if (other.gameObject.tag == "Interactable")
         {
-          interactable = response.gameObject.GetComponent<Interactable>();
+          interactable = other.gameObject.GetComponent<Interactable>();
         }
-        if (response.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
-            target = response.gameObject.GetComponent<Enemy>();
+            target = other.gameObject.GetComponent<Enemy>();
         }
     }
     

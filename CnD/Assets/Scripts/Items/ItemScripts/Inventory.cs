@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
 public class InventoryObject : ScriptableObject
 {
-    public string savePath;
+    //public string savePath;
     public Inventory container;
     public ItemDatabaseObj database;
     // List to store all the items in the inventory
@@ -26,31 +26,31 @@ public class InventoryObject : ScriptableObject
         }
         container.items.Add(new InventorySlot(_item.ID, _item, _amount));
     }
-    [ContextMenu("Save")]
-    public void Save()
-    {
-        IFormatter formatter = new BinaryFormatter();
-        Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath, savePath), FileMode.Create, FileAccess.Write);
-        formatter.Serialize(stream, container);
-        stream.Close();
-    }
-    [ContextMenu("Load")]
-    public void Load()
-    {
-        if (File.Exists(string.Concat(Application.persistentDataPath, savePath)))
-        {
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath, savePath), FileMode.Open, FileAccess.Read);
-            container = (Inventory)formatter.Deserialize(stream);
-            stream.Close();
-        }
+    //[ContextMenu("Save")]
+    //public void Save()
+    //{
+    //    IFormatter formatter = new BinaryFormatter();
+    //    Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath, savePath), FileMode.Create, FileAccess.Write);
+    //    formatter.Serialize(stream, container);
+    //    stream.Close();
+    //}
+    //[ContextMenu("Load")]
+    //public void Load()
+    //{
+    //    if (File.Exists(string.Concat(Application.persistentDataPath, savePath)))
+    //    {
+    //        IFormatter formatter = new BinaryFormatter();
+    //        Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath, savePath), FileMode.Open, FileAccess.Read);
+    //        container = (Inventory)formatter.Deserialize(stream);
+    //        stream.Close();
+    //    }
 
-    }
-    [ContextMenu("Clear")]
-    public void Clear()
-    {
-        container = new Inventory();
-    }
+    //}
+    //[ContextMenu("Clear")]
+    //public void Clear()
+    //{
+    //    container = new Inventory();
+    //}
 
 }
 

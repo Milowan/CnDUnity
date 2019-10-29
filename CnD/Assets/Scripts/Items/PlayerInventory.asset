@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: PlayerInventory
   m_EditorClassIdentifier: Assembly-CSharp::InventoryObject
-  savePath: \Inv.save
+  savePath: /Inv.Save
   container:
     items: []
-  database: {fileID: 11400000, guid: 9716ebd12153fa04ba7cdc17dd7fe864, type: 2}
+  database: {fileID: 11400000, guid: ff8023df57b2e814e97e2dd897f05876, type: 2}
