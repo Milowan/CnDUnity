@@ -8,6 +8,14 @@ public class Interactable : MonoBehaviour
     public bool isOn = false;
     virtual public void OnTriggerEnter2D(Collider2D other)
     {
+        if(Input.GetButtonDown("Interact"))
+        {
+            act();
+        }
+    }
+
+    virtual public void act()
+    {
 
     }
 }
