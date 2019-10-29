@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d65ad84e5ef4d7b46a90f26075673d5c, type: 3}
-  m_Name: ItemDataBase
+  m_Script: {fileID: 11500000, guid: b454fcf2470e8484ab42aa761c646681, type: 3}
+  m_Name: Arrow
   m_EditorClassIdentifier: 
-  Items:
-  - {fileID: 11400000, guid: eff201e8cf6ef1e46acf7b76fb716f6f, type: 2}
+  prefab: {fileID: 1116149881891042917, guid: 61faf448a70e82f449743a047912836d, type: 3}
+  type: 2
+  description: 
+  healValue: 0
