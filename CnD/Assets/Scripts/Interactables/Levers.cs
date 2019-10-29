@@ -8,7 +8,7 @@ public class Levers : Interactable
     public override void act()
     {
         isOn = true;
-        Debug.Log("isOn = " + isOn);
+        Debug.Log(isOn);
     }
 
 }
