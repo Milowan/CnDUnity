@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,8 +9,12 @@ public class Player : Character
     //private Sword *sword;
     //private Armour *armour;
     //private Helmet *helmet;
-    //private Inventory *inventory;
+
+    // Inventory Vars //
+    public InventoryObject inventory; // Set the inventory in the inspector with the Inventory ScriptableObject we created in the Editor
+    private int slotLimit;
     private Interactable *interactable;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +31,20 @@ public class Player : Character
 
     private void OnTriggerEnter(Collider response)
     {
-        if (response.gameObject.tag == "Interactable")
+        // If the player collides with an Item, and if our slotLimit is less than 10, 1 item gets added to the inventory
+        var item = response.GetComponent<Grounditem>();
+        if (item && slotLimit < 10)
+        {
+            inventory.AddItem(new item(item._item), 1);
+            Destroy(response.gameObject);
+            slotLimit++;
+        }
+        else
+        {
+            Debug.Log("Cant Add Item");
+        }
+        
+         if (response.gameObject.tag == "Interactable")
         {
           interactable = response.gameObject.GetComponent<Interactable>();
         }
@@ -36,6 +53,9 @@ public class Player : Character
             target = response.gameObject.GetComponent<Enemy>();
         }
     }
+    
+
+       
 
     private void OnTriggerExit(Collider response)
     {
@@ -61,5 +81,10 @@ public class Player : Character
         {
         //  interactable.act();
         }
+    }
+        // We need to clear the inventory when the game closes, or the game will remember our inventory from the previous play and produces serios problems
+    private void OnApplicationQuit()
+    {
+        inventory.container.items.Clear();
     }
 }
