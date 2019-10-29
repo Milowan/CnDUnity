@@ -31,11 +31,11 @@ public class Enemy : Character
         currentV = body.velocity;
         if (tDelayed >= movDelay)
         {
-            if (status == IDLE)
+            if (status == CharacterStatus.IDLE)
             {
                 Wander();
             }
-            else if (status == CHASING)
+            else if (status == CharacterStatus.CHASING)
             {
                 Chase();
             }
@@ -50,7 +50,7 @@ public class Enemy : Character
     {
         if (response.gameObject.tag == "Player")
         {
-            status = CHASING;
+            status = CharacterStatus.CHASING;
             target = response.gameObject.GetComponent<Character>();
         }
     }
@@ -59,7 +59,7 @@ public class Enemy : Character
     {
         if (response.gameObject.tag == "Player")
         {
-            status = IDLE;
+            status = CharacterStatus.IDLE;
             target = null;
         }
     }

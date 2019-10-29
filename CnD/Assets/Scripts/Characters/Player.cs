@@ -10,7 +10,7 @@ public class Player : Character
     //private Armour *armour;
     //private Helmet *helmet;
 
-    //private Inventory *inventory;
+
     private Interactable interactable;
 
 
@@ -31,6 +31,11 @@ public class Player : Character
     void Update()
     {
         pos.Translate(Input.GetAxis("Horizontal") * movSpeed, Input.GetAxis("Vertical") * movSpeed, 0f);
+
+        if (Input.GetButtonDown("Interact"))
+        {
+            Interact();
+        }
     }
 
     private void OnTriggerEnter(Collider response)
