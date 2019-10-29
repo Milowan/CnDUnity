@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,8 +9,16 @@ public class Player : Character
     //private Sword *sword;
     //private Armour *armour;
     //private Helmet *helmet;
-    //private Inventory *inventory;
-    private Interactable *interactable;
+
+
+    private Interactable interactable;
+
+
+    // Inventory Vars //
+    public InventoryObject inventory; // Set the inventory in the inspector with the Inventory ScriptableObject we created in the Editor
+    private int slotLimit;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,15 +31,40 @@ public class Player : Character
     void Update()
     {
         pos.Translate(Input.GetAxis("Horizontal") * movSpeed, Input.GetAxis("Vertical") * movSpeed, 0f);
+
+        if (Input.GetButtonDown("Interact"))
+        {
+            Interact();
+        }
     }
 
     private void OnTriggerEnter(Collider response)
     {
-        if (response.gameObject.tag == "Interactable")
+        // If the player collides with an Item, and if our slotLimit is less than 10, 1 item gets added to the inventory
+        var item = response.GetComponent<Grounditem>();
+        if (item && slotLimit < 10)
+        {
+            inventory.AddItem(new item(item._item), 1);
+            Destroy(response.gameObject);
+            slotLimit++;
+        }
+        else
+        {
+            Debug.Log("Cant Add Item");
+        }
+        
+         if (response.gameObject.tag == "Interactable")
         {
           interactable = response.gameObject.GetComponent<Interactable>();
         }
+        if (response.gameObject.tag == "Enemy")
+        {
+            target = response.gameObject.GetComponent<Enemy>();
+        }
     }
+    
+
+       
 
     private void OnTriggerExit(Collider response)
     {
@@ -41,11 +74,26 @@ public class Player : Character
         }
     }
 
+    protected override void Attack()
+    {
+
+    }
+
+    protected override void Die()
+    {
+        //restart level
+    }
+
     private void Interact()
     {
         if (interactable != null)
         {
-        //  interactable.act();
+            interactable.act();
         }
+    }
+        // We need to clear the inventory when the game closes, or the game will remember our inventory from the previous play and produces serios problems
+    private void OnApplicationQuit()
+    {
+        inventory.container.items.Clear();
     }
 }
