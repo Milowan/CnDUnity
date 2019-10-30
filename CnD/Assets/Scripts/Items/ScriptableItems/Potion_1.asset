@@ -16,5 +16,6 @@ MonoBehaviour:
   ID: 7
   uiDisplay: {fileID: 21300000, guid: 87c68a7122e69db458b4f0dd5b842c0d, type: 3}
   type: 2
+  isStackable: 1
   description: Potion (Heals 10)
   healValue: 10
