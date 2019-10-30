@@ -34,6 +34,7 @@ public class InventoryObject : ScriptableObject
     }
 }
 
+
 [System.Serializable]
 public class Inventory
 {
