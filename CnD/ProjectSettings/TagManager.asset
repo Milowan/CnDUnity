@@ -48,21 +48,12 @@ TagManager:
   - name: Map_Floor
     uniqueID: 4042161927
     locked: 0
-  - name: Map_Walls-Behind
-    uniqueID: 1852737589
-    locked: 0
-  - name: Map_Deco
-    uniqueID: 4021248285
-    locked: 0
-  - name: Player
-    uniqueID: 32451785
-    locked: 0
-  - name: Map_Walls-InFront
-    uniqueID: 2818842105
-    locked: 0
   - name: UI
     uniqueID: 866210857
     locked: 0
   - name: UIText
     uniqueID: 3444811033
+    locked: 0
+  - name: Player
+    uniqueID: 32451785
     locked: 0
