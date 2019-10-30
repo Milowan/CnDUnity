@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3cdec2fdd988f4788f6691b744a0eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 884405831d1fa3840bc69ca37fe15859, type: 3}
   m_Name: Sword_1
   m_EditorClassIdentifier: 
   ID: 13
@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 0
   description: 
   range: 0
-  Damage: 3
+  Damage: 0
   speed: 0
   STRBonus: 0
   DexBonus: 0

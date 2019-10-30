@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lever
   - Interactable
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -42,4 +43,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Map_Floor
+    uniqueID: 4042161927
+    locked: 0
+  - name: UI
+    uniqueID: 866210857
+    locked: 0
+  - name: UIText
+    uniqueID: 3444811033
+    locked: 0
+  - name: Player
+    uniqueID: 32451785
     locked: 0

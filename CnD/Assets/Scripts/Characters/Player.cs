@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Player : Character
 {
+    public static bool gamePaused = false;       // Pausing for inventory
+
+
+    public GameObject inventoryUI;
+    public GameObject hotbarUI;
     private Transform pos;
 
     //private Sword *sword;
@@ -23,29 +28,57 @@ public class Player : Character
     // Start is called before the first frame update
     void Start()
     {
+
+
         pos = GetComponent<Transform>();
         pos.tag = "Player";
     }
 
+    private void FixedUpdate()
+    {
+        pos.Translate(Input.GetAxis("Horizontal") * movSpeed, Input.GetAxis("Vertical") * movSpeed, 0f);
+
+    }
     // Update is called once per frame
     void Update()
     {
-        pos.Translate(Input.GetAxis("Horizontal") * movSpeed, Input.GetAxis("Vertical") * movSpeed, 0f);
 
         if (Input.GetButtonDown("Interact"))
         {
             Interact();
         }
+
+        if (Input.GetButtonDown("Inventory") || Input.GetButtonDown("Cancel"))
+        {
+            if (gamePaused)
+            {
+                hotbarUI.SetActive(true);
+                Time.timeScale = 1f;
+                inventoryUI.SetActive(false);
+                gamePaused = false;
+            }
+            else
+            {
+                hotbarUI.SetActive(false);
+                Time.timeScale = 0f;
+                inventoryUI.SetActive(true);
+                gamePaused = true;
+
+            }
+        }
     }
 
-    private void OnTriggerEnter(Collider response)
+
+
+
+    private void OnTriggerEnter(Collider other)
     {
         // If the player collides with an Item, and if our slotLimit is less than 10, 1 item gets added to the inventory
-        var item = response.GetComponent<Grounditem>();
-        if (item && slotLimit < 10)
+        var item = other.GetComponent<Grounditem>();
+        if (other.gameObject.CompareTag("Item") && item && slotLimit < 12)
         {
             inventory.AddItem(new item(item._item), 1);
-            Destroy(response.gameObject);
+            Destroy(other.gameObject);
             slotLimit++;
         }
         else
@@ -53,13 +86,13 @@ public class Player : Character
             Debug.Log("Cant Add Item");
         }
         
-         if (response.gameObject.tag == "Interactable")
+         if (other.gameObject.tag == "Interactable")
         {
-          interactable = response.gameObject.GetComponent<Interactable>();
+          interactable = other.gameObject.GetComponent<Interactable>();
         }
-        if (response.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
-            target = response.gameObject.GetComponent<Enemy>();
+            target = other.gameObject.GetComponent<Enemy>();
         }
     }
     

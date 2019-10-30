@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class Levers : Interactable
 {
-    public bool isOn = false;
+    public Sprite spOn, spOff;
+    Doors m_doorCollider;
     public override void act()
     {
-        isOn = true;
-        Debug.Log(isOn);
+        if (isOn)
+        {
+            m_doorCollider.enabled = true;
+            this.GetComponent<SpriteRenderer>().sprite = spOn;
+        }
+        else
+        {
+            m_doorCollider.enabled = false;
+            this.GetComponent<SpriteRenderer>().sprite = spOff;
+        }
     }
 
 }

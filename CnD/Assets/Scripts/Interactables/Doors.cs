@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Doors : Interactable
 {
-
+    Collider m_doorCollider;
 }
