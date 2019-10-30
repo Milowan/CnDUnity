@@ -74,9 +74,9 @@ public class Player : Character
     private void OnTriggerEnter(Collider other)
     {
         // If the player collides with an Item, and if our slotLimit is less than 10, 1 item gets added to the inventory
-        var item = other.GetComponent<Grounditem>();
-        if (other.gameObject.CompareTag("Item") && item && slotLimit < 12)
+        if (other.gameObject.CompareTag("Item") && slotLimit < 12)
         {
+            var item = other.GetComponent<Grounditem>();
             inventory.AddItem(new item(item._item), 1);
             Destroy(other.gameObject);
             slotLimit++;

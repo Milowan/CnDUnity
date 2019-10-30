@@ -8,12 +8,13 @@ public class Enemy : Character
     public float wanderRangeMax;
     public float wanderRangeMin;
     private Vector3 targetPos;
-    private Vector3 wanderPos;
     private Vector3 current;
     private Vector3 currentV;
     private Vector3 correction;
     public float movDelay;
     private float tDelayed;
+    protected float attackCD;
+    protected float CDTimer;
 
     private Transform pos;
     private Rigidbody body;
@@ -23,7 +24,8 @@ public class Enemy : Character
     {
         pos = GetComponent<Transform>();
         body = GetComponent<Rigidbody>();
-        tDelayed = 0f;
+        tDelayed = movDelay;
+        targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f);
     }
 
     // Update is called once per frame
@@ -34,17 +36,20 @@ public class Enemy : Character
         {
             if (status == CharacterStatus.IDLE)
             {
-                Wander(wanderPos);
+                Wander();
             }
             else if (status == CharacterStatus.CHASING)
             {
                 Chase();
             }
+            else if (status == CharacterStatus.FIGHTING)
+            {
+                Attack();
+            }
         }
         else
         {
             tDelayed += Time.deltaTime;
-            wanderPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f);
         }
     }
 
@@ -75,15 +80,22 @@ public class Enemy : Character
         currentV = Vector3.ClampMagnitude(currentV + correction, movSpeed);
         pos.position += currentV;
 
-        if (pos.position == targetPos)
+        if ((targetPos - current).magnitude < 0.025f)
         {
+            if (status == CharacterStatus.IDLE)
+            { 
+                targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f); 
+            }
+            else if (status == CharacterStatus.CHASING)
+            {
+                status = CharacterStatus.FIGHTING;
+            }
             tDelayed = 0f;
         }
     }
 
-    private void Wander(Vector3 tPos)
+    private void Wander()
     {
-        targetPos = tPos;
         current = body.position;
         Steer();
     }
