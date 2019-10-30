@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class Dais : Interactable
 {
-    //public bool gemOneSet = false;
-    //public bool gemTwoSet = false;
-    //public bool gemThreeSet = false;
-    //public bool gemFourSet = false;
-
-    //public override void act()
-    //{
-    //    if(!gemOneSet)
-    //    {
-
-    //    }
-    //}
+    public Sprite spOn;
+    public override void act()
+    {
+        if (!isOn)
+        {
+            GetComponent<SpriteRenderer>().sprite = spOn;
+            isOn = true;
+        }
+    }
 }

@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class Chests : Interactable
 {
-    Collider m_chestCollider;
     public Sprite spOpen, spClosed;
     public override void act()
     {
-        if (isOpen)
+        if (!isOpen)
         {
-            m_chestCollider.enabled = false;
-            this.GetComponent<SpriteRenderer>().sprite = spOpen;
+            GetComponent<SpriteRenderer>().sprite = spOpen;
         }
         else
         {
-            this.GetComponent<SpriteRenderer>().sprite = spClosed;
+            GetComponent<SpriteRenderer>().sprite = spClosed;
         }
+        isOpen = !isOpen;
     }
 }

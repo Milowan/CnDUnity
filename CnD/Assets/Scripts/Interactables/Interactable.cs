@@ -13,4 +13,8 @@ public class Interactable : MonoBehaviour
     {
 
     }
+    public bool getIsOn()
+    {
+        return isOn;
+    }
 }
