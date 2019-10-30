@@ -12,7 +12,6 @@ public enum ItemType
 }
 public abstract class ItemObject : ScriptableObject
 {
-    public int amount;
     public int ID;
     public Sprite uiDisplay;
     //GameObject prefab;    // Changed from a prefab to a sprite
