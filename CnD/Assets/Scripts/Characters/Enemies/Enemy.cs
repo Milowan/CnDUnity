@@ -7,17 +7,26 @@ public class Enemy : Character
     public float maxForce;
     public float wanderRangeMax;
     public float wanderRangeMin;
-    protected Vector3 targetPos;
+    private Vector3 targetPos;
     private Vector3 current;
     private Vector3 currentV;
     private Vector3 correction;
     public float movDelay;
-    protected float tDelayed;
+    private float tDelayed;
     protected float attackCD;
     protected float CDTimer;
 
-    protected Transform pos;
-    protected Rigidbody body;
+    private Transform pos;
+    private Rigidbody body;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        pos = GetComponent<Transform>();
+        body = GetComponent<Rigidbody>();
+        tDelayed = movDelay;
+        targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f);
+    }
 
     // Update is called once per frame
     void Update()
@@ -61,25 +70,6 @@ public class Enemy : Character
             target = null;
         }
     }
-    protected override void Attack()
-    {
-        if (target != null)
-        {
-            if (CDTimer >= attackCD)
-            {
-                if (Random.Range(0, 100) > target.GetEvasion())
-                { 
-                    target.TakeDamage(GetAttack()); 
-                }
-                CDTimer = 0;
-            }
-            else
-            {
-                CDTimer += Time.deltaTime;
-            }
-            
-        }
-    }
 
     private void Steer()
     {
@@ -94,7 +84,7 @@ public class Enemy : Character
         {
             if (status == CharacterStatus.IDLE)
             { 
-                targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax) + pos.position.x, Random.Range(wanderRangeMin, wanderRangeMax) + pos.position.y, 0f); 
+                targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f); 
             }
             else if (status == CharacterStatus.CHASING)
             {

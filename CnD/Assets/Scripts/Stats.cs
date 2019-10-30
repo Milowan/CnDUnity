@@ -8,7 +8,7 @@ public class Stats
     public float defense;
     public float evasion;
 
-    public Stats()
+    Stats()
     {
         attack = 0;
         defense = 0;

@@ -7,7 +7,6 @@ TagManager:
   - Lever
   - Interactable
   - Item
-  - Enemy
   layers:
   - Default
   - TransparentFX
