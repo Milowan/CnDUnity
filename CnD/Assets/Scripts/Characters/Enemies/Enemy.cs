@@ -8,6 +8,7 @@ public class Enemy : Character
     public float wanderRangeMax;
     public float wanderRangeMin;
     private Vector3 targetPos;
+    private Vector3 wanderPos;
     private Vector3 current;
     private Vector3 currentV;
     private Vector3 correction;
@@ -22,7 +23,7 @@ public class Enemy : Character
     {
         pos = GetComponent<Transform>();
         body = GetComponent<Rigidbody>();
-        tDelayed = movDelay;
+        tDelayed = 0f;
     }
 
     // Update is called once per frame
@@ -33,7 +34,7 @@ public class Enemy : Character
         {
             if (status == CharacterStatus.IDLE)
             {
-                Wander();
+                Wander(wanderPos);
             }
             else if (status == CharacterStatus.CHASING)
             {
@@ -43,6 +44,7 @@ public class Enemy : Character
         else
         {
             tDelayed += Time.deltaTime;
+            wanderPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f);
         }
     }
 
@@ -79,9 +81,9 @@ public class Enemy : Character
         }
     }
 
-    private void Wander()
+    private void Wander(Vector3 tPos)
     {
-        targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f);
+        targetPos = tPos;
         current = body.position;
         Steer();
     }
