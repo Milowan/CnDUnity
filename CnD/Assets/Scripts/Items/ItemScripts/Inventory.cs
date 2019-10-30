@@ -13,18 +13,16 @@ public class InventoryObject : ScriptableObject
     // List to store all the items in the inventory
     // Add the item to the inventory, we search for the item in the list, if found we add it to the slot that had the item in it
     // if not, we creat a new inventory slot with that item in it.
-    private int slotLimit;
     public void AddItem(item _item, int _amount)
     {
+        if (_item.isStackable == false)
+        {
+            container.items.Add(new InventorySlot(_item.ID, _item, _amount));
+            return;
+        }
         for (int i = 0; i < container.items.Count; i++)
         {
-            if (_item.isStackable == false && slotLimit <= container.items.Count)
-            {
-                container.items.Add(new InventorySlot(_item.ID, _item, _amount));
-                slotLimit++;
-                return;
-            }
-            if (container.items[i].item.ID == _item.ID && _item.isStackable == true)
+            if (container.items[i].item.ID == _item.ID)
             {
                 container.items[i].AddAmount(_amount);
                 return;

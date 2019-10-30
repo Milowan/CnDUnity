@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef52923377e1e45428e9c37f41bff01f, type: 3}
   m_Name: Potion_3
   m_EditorClassIdentifier: 
+  amount: 0
   ID: 9
   uiDisplay: {fileID: 21300000, guid: 6fd778f8664e4c643ab2143407a1ce0c, type: 3}
   type: 2
-  isStackable: 0
+  isStackable: 1
   description: Big Flask for Big Bois
   healValue: 30

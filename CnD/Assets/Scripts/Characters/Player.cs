@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Player : Character
 {
@@ -22,17 +21,13 @@ public class Player : Character
 
     // Inventory Vars //
     public InventoryObject inventory; // Set the inventory in the inspector with the Inventory ScriptableObject we created in the Editor
+    private int slotLimit;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        movSpeed = 0.05f;
-        stats = new Stats();
-        SetStats();
-        maxHealth = 50;
-        health = maxHealth;
 
 
         pos = GetComponent<Transform>();
@@ -47,6 +42,7 @@ public class Player : Character
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetButtonDown("Interact"))
         {
             Interact();
@@ -70,21 +66,16 @@ public class Player : Character
 
             }
         }
-
-        if (Input.GetButtonDown("MainAtk"))
-        {
-            Attack();
-        }
     }
-    private int slotLimit;
-    
+
+
+
 
     private void OnTriggerEnter(Collider other)
     {
+        // If the player collides with an Item, and if our slotLimit is less than 10, 1 item gets added to the inventory
         var item = other.GetComponent<Grounditem>();
-        slotLimit = inventory.container.items.Count;
-         // If the player collides with an Item, and if our slotLimit is less than 10, 1 item gets added to the inventory
-        if (other.gameObject.CompareTag("Item") && item && slotLimit < 10)
+        if (other.gameObject.CompareTag("Item") && item && slotLimit < 12)
         {
             inventory.AddItem(new item(item._item), 1);
             Destroy(other.gameObject);
@@ -114,34 +105,16 @@ public class Player : Character
         {
             interactable = null;
         }
-        if (response.gameObject.GetComponent<Enemy>() == target)
-        {
-            target = null;
-        }
-    }
-
-    protected override void SetStats()
-    {
-        stats.attack = 10f;
-        stats.defense = 1f;
-        stats.evasion = 15f;
     }
 
     protected override void Attack()
     {
-        if (target != null)
-        {
-            if (Random.Range(0, 100) > target.GetEvasion())
-            {
-                target.TakeDamage(GetAttack());
-            }
-        }
+
     }
 
     protected override void Die()
     {
-        status = CharacterStatus.DEAD;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //restart level
     }
 
     private void Interact()
