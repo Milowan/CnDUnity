@@ -17,6 +17,7 @@ public abstract class ItemObject : ScriptableObject
     public Sprite uiDisplay;
     //GameObject prefab;    // Changed from a prefab to a sprite
     public ItemType type;
+    public bool isStackable;
     [TextArea(15,20)]
     public string description;
 }
@@ -26,10 +27,10 @@ public class item
 {
     public string name;
     public int ID;
-    public int amount;
+    public bool isStackable;
     public item(ItemObject item)
     {
-        amount = item.amount;
+        isStackable = item.isStackable;
         name = item.name;
         ID = item.ID;
     }

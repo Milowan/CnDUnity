@@ -16,6 +16,11 @@ public class InventoryObject : ScriptableObject
     // if not, we creat a new inventory slot with that item in it.
     public void AddItem(item _item, int _amount)
     {
+        if (_item.isStackable == false)
+        {
+            container.items.Add(new InventorySlot(_item.ID, _item, _amount));
+            return;
+        }
         for (int i = 0; i < container.items.Count; i++)
         {
             if (container.items[i].item.ID == _item.ID)

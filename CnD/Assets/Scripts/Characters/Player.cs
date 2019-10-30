@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Player : Character
 {
+    public static bool gamePaused = false;       // Pausing for inventory
+
+
+    public GameObject inventoryUI;
+    public GameObject hotbarUI;
     private Transform pos;
 
     //private Sword *sword;
@@ -23,20 +28,48 @@ public class Player : Character
     // Start is called before the first frame update
     void Start()
     {
+
+
         pos = GetComponent<Transform>();
         pos.tag = "Player";
     }
 
+    private void FixedUpdate()
+    {
+        pos.Translate(Input.GetAxis("Horizontal") * movSpeed, Input.GetAxis("Vertical") * movSpeed, 0f);
+
+    }
     // Update is called once per frame
     void Update()
     {
-        pos.Translate(Input.GetAxis("Horizontal") * movSpeed, Input.GetAxis("Vertical") * movSpeed, 0f);
 
         if (Input.GetButtonDown("Interact"))
         {
             Interact();
         }
+
+        if (Input.GetButtonDown("Inventory") || Input.GetButtonDown("Cancel"))
+        {
+            if (gamePaused)
+            {
+                hotbarUI.SetActive(true);
+                Time.timeScale = 1f;
+                inventoryUI.SetActive(false);
+                gamePaused = false;
+            }
+            else
+            {
+                hotbarUI.SetActive(false);
+                Time.timeScale = 0f;
+                inventoryUI.SetActive(true);
+                gamePaused = true;
+
+            }
+        }
     }
+
+
+
 
     private void OnTriggerEnter(Collider other)
     {

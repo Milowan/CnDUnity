@@ -16,6 +16,7 @@ MonoBehaviour:
   ID: 0
   uiDisplay: {fileID: 21300000, guid: e630ca5e6b4165648969cd1b1f49f10d, type: 3}
   type: 2
+  isStackable: 1
   description: 'A Basic Arrow (Not Used in game) Basically a Test object
 
 '
