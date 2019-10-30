@@ -32,14 +32,15 @@ public class DisplayInventory : MonoBehaviour
     //Upon picking up an item, if the number of slots is less than our slot limit,  we need to check through the inventory slots for the item, if we find it, we increment the amount displayed by 1,
     // if we dont find the item, we create a new itemSlot, pass in the items information and display it within the inventory, beside the previous inventory slot
     //or below if we are extending the inventory beyond 1 row.
-        public void UpdateDisplay()
+    public void UpdateDisplay()
     {
-        int slots;
-        slots = inventory.container.items.Count;
-        if (slots < slotLimit + 1)
+        
+        slotLimit = inventory.container.items.Count;
+
+        for (int i = 0; i < inventory.container.items.Count; i++)
         {
-            for (int i = 0; i < inventory.container.items.Count; i++)
-            {
+            //if (slotLimit <= NUMBER_OF_COLUMN)
+            //{
                 InventorySlot slot = inventory.container.items[i];
                 if (itemsDislayed.ContainsKey(slot))
                 {
@@ -53,34 +54,29 @@ public class DisplayInventory : MonoBehaviour
                     obj.GetComponentInChildren<TextMeshProUGUI>().text = slot.amount.ToString("n0");
                     itemsDislayed.Add(slot, obj);
                 }
-            }
+            //}
+
+            
         }
     }
     // Create the Inventory on start, 
     public void CreateDisplay()
     {
-        int slots;
-        slots = inventory.container.items.Count;
-        if (slots < slotLimit + 1)
+        for (int i = 0; i < inventory.container.items.Count; i++)
         {
+            InventorySlot slot = inventory.container.items[i];
 
-            for (int i = 0; i < inventory.container.items.Count; i++)
-            {
-                InventorySlot slot = inventory.container.items[i];
-
-                var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
-                obj.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.database.GetItem[slot.item.ID].uiDisplay;
-                obj.GetComponent<RectTransform>().localPosition = GetPosiotion(i);
-                obj.GetComponentInChildren<TextMeshProUGUI>().text = slot.amount.ToString("n0");
-                itemsDislayed.Add(slot, obj);
-
-            }
-        }
-        else
-        {
+            var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
+            obj.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.database.GetItem[slot.item.ID].uiDisplay;
+            obj.GetComponent<RectTransform>().localPosition = GetPosiotion(i);
+            obj.GetComponentInChildren<TextMeshProUGUI>().text = slot.amount.ToString("n0");
+            itemsDislayed.Add(slot, obj);
 
         }
+        
+
     }
+
     public Vector3 GetPosiotion(int i)
     {   // Set the position of the inventory slot, and the space beside and below the next inventory slot.
         return new Vector3(XSTART + X_SPACE_BETWEEN_ITEM * (i % NUMBER_OF_COLUMN), YSTART + (-Y_SPACE_BETWEEN_ITEMS * (i / NUMBER_OF_COLUMN)), 0f);
