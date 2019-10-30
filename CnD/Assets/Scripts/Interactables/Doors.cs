@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class Doors : Interactable
 {
-    Collider m_collider;
+    public Collider m_doorCollider;
+
+    private void Start()
+    {
+        m_doorCollider = GetComponent<Collider>();
+    }
 }

@@ -13,7 +13,7 @@ public class Character : MonoBehaviour
         DEAD
     };
 
-    public Stats stats;
+    protected Stats stats;
     public CharacterStatus status;
     public float maxHealth;
     private float health;
