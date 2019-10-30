@@ -21,7 +21,6 @@ public class Player : Character
 
     // Inventory Vars //
     public InventoryObject inventory; // Set the inventory in the inspector with the Inventory ScriptableObject we created in the Editor
-    private int slotLimit;
 
 
 
@@ -42,7 +41,6 @@ public class Player : Character
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetButtonDown("Interact"))
         {
             Interact();
@@ -67,15 +65,15 @@ public class Player : Character
             }
         }
     }
-
-
-
+    private int slotLimit;
+    
 
     private void OnTriggerEnter(Collider other)
     {
-        // If the player collides with an Item, and if our slotLimit is less than 10, 1 item gets added to the inventory
+        slotLimit = inventory.container.items.Count;
+         // If the player collides with an Item, and if our slotLimit is less than 10, 1 item gets added to the inventory
         var item = other.GetComponent<Grounditem>();
-        if (other.gameObject.CompareTag("Item") && item && slotLimit < 12)
+        if (other.gameObject.CompareTag("Item") && item && slotLimit < 10)
         {
             inventory.AddItem(new item(item._item), 1);
             Destroy(other.gameObject);
