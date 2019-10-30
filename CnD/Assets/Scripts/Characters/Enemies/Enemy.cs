@@ -13,6 +13,8 @@ public class Enemy : Character
     private Vector3 correction;
     public float movDelay;
     private float tDelayed;
+    protected float attackCD;
+    protected float CDTimer;
 
     private Transform pos;
     private Rigidbody body;
@@ -23,6 +25,7 @@ public class Enemy : Character
         pos = GetComponent<Transform>();
         body = GetComponent<Rigidbody>();
         tDelayed = movDelay;
+        targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f);
     }
 
     // Update is called once per frame
@@ -38,6 +41,10 @@ public class Enemy : Character
             else if (status == CharacterStatus.CHASING)
             {
                 Chase();
+            }
+            else if (status == CharacterStatus.FIGHTING)
+            {
+                Attack();
             }
         }
         else
@@ -73,15 +80,22 @@ public class Enemy : Character
         currentV = Vector3.ClampMagnitude(currentV + correction, movSpeed);
         pos.position += currentV;
 
-        if (pos.position == targetPos)
+        if ((targetPos - current).magnitude < 0.025f)
         {
+            if (status == CharacterStatus.IDLE)
+            { 
+                targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f); 
+            }
+            else if (status == CharacterStatus.CHASING)
+            {
+                status = CharacterStatus.FIGHTING;
+            }
             tDelayed = 0f;
         }
     }
 
     private void Wander()
     {
-        targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f);
         current = body.position;
         Steer();
     }

@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class Bat : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        attackCD = 2f;
+        CDTimer = 0f;
     }
-
     protected override void Attack()
     {
+        if (CDTimer >= attackCD)
+        {
 
+        }
     }
 
     protected override void Die()

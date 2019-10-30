@@ -9,7 +9,7 @@ public class Interactable : MonoBehaviour
     protected bool isOn = false;
     protected bool isOpen = false;
 
-    virtual public void act()
+    public virtual void act()
     {
 
     }
