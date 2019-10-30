@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    public Sprite spOpen, spClosed;
+
     private Player player;
-    virtual public void OnTrigger(Collider other)
-    {
-        if(Input.GetButtonDown("Interact"))
-        {
-            act();
-        }
-    }
+
+    protected bool isOn = false;
+    protected bool isOpen = false;
 
     virtual public void act()
     {

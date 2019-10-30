@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Levers : Interactable
 {
-    public bool isOn = false;
+    Doors m_collider;
     public override void act()
     {
-        isOn = true;
-        Debug.Log(isOn);
+        if (isOn)
+        {
+            m_collider.enabled = true;
+        }
+        else
+        {
+            m_collider.enabled = false;
+        }
     }
 
 }
