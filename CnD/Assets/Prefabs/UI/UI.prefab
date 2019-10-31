@@ -1158,8 +1158,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1542,7 +1542,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1770,7 +1770,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1945,7 +1945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323b0e05fe9049a42920f2d5f98f4067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryPrefab: {fileID: 7074991694734387867, guid: 81c2aea4d568d644189d3db5e29533d6,
+  inventoryPrefab: {fileID: 7074991694734387867, guid: 39f9cfdacd1ac80418dba8e4e912eee2,
     type: 3}
   inventory: {fileID: 11400000, guid: 29076201014cda74dad68fb817356f49, type: 2}
   slotLimit: 10
@@ -2364,7 +2364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323b0e05fe9049a42920f2d5f98f4067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryPrefab: {fileID: 8390861718301928521, guid: dabfe970f7b8f6849acd5ea208625a3c,
+  inventoryPrefab: {fileID: 8390861718301928521, guid: cd731490cf3c34d4a8e9efd8a0fa3197,
     type: 3}
   inventory: {fileID: 11400000, guid: 29076201014cda74dad68fb817356f49, type: 2}
   slotLimit: 10
@@ -3001,7 +3001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323b0e05fe9049a42920f2d5f98f4067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryPrefab: {fileID: 8390861718301928521, guid: dabfe970f7b8f6849acd5ea208625a3c,
+  inventoryPrefab: {fileID: 8390861718301928521, guid: cd731490cf3c34d4a8e9efd8a0fa3197,
     type: 3}
   inventory: {fileID: 11400000, guid: 29076201014cda74dad68fb817356f49, type: 2}
   slotLimit: 10
@@ -3075,7 +3075,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3425,7 +3425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323b0e05fe9049a42920f2d5f98f4067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryPrefab: {fileID: 6150004555732055022, guid: c86410cfe0145ae489077376dc265b01,
+  inventoryPrefab: {fileID: 6150004555732055022, guid: b0de811d13f29a1498d5d73148c4a84e,
     type: 3}
   inventory: {fileID: 0}
   slotLimit: 10
