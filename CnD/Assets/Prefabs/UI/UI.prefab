@@ -1945,7 +1945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323b0e05fe9049a42920f2d5f98f4067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryPrefab: {fileID: 7074991694734387867, guid: 7e0a60a4cfcdb1849a1f25a6c86bae5b,
+  inventoryPrefab: {fileID: 7074991694734387867, guid: 81c2aea4d568d644189d3db5e29533d6,
     type: 3}
   inventory: {fileID: 11400000, guid: 29076201014cda74dad68fb817356f49, type: 2}
   slotLimit: 10
@@ -2364,7 +2364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323b0e05fe9049a42920f2d5f98f4067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryPrefab: {fileID: 8390861718301928521, guid: 6810131e1cfcb8145836c5f4257fe473,
+  inventoryPrefab: {fileID: 8390861718301928521, guid: dabfe970f7b8f6849acd5ea208625a3c,
     type: 3}
   inventory: {fileID: 11400000, guid: 29076201014cda74dad68fb817356f49, type: 2}
   slotLimit: 10
@@ -3001,7 +3001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323b0e05fe9049a42920f2d5f98f4067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryPrefab: {fileID: 8390861718301928521, guid: 6810131e1cfcb8145836c5f4257fe473,
+  inventoryPrefab: {fileID: 8390861718301928521, guid: dabfe970f7b8f6849acd5ea208625a3c,
     type: 3}
   inventory: {fileID: 11400000, guid: 29076201014cda74dad68fb817356f49, type: 2}
   slotLimit: 10
