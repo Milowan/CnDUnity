@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gem1
   m_EditorClassIdentifier: 
   ID: 0
-  uiDisplay: {fileID: 21300000, guid: 925a44a4c3c5a904c9a7b6a6ebf44dae, type: 3}
+  uiDisplay: {fileID: 21300000, guid: 6db7966819a5069429317d87a5870d0f, type: 3}
   type: 3
   isStackable: 0
   description: 

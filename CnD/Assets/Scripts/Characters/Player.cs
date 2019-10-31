@@ -7,7 +7,7 @@ public class Player : Character
 {
     public static bool gamePaused = false;       // Pausing for inventory
 
-
+    private GemItem gem;
     public GameObject inventoryUI;
     public GameObject hotbarUI;
     private Transform pos;
@@ -89,6 +89,10 @@ public class Player : Character
             inventory.AddItem(new item(item._item), 1);
             Destroy(other.gameObject);
             slotLimit++;
+            if ( gem == other.gameObject.GetComponent<GemItem>())
+            {
+                gem.SetPickedup();
+            }
         }
         if (other.gameObject.CompareTag("Gem") && slotLimit < 12)
         {

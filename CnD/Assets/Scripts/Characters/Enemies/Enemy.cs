@@ -112,7 +112,7 @@ public class Enemy : Character
         currentV = Vector3.ClampMagnitude(currentV + correction, movSpeed);
         pos.position += currentV;
 
-        if ((targetPos - current).magnitude < 1f)
+        if ((targetPos - current).magnitude < 2f)
         {
             if (status == CharacterStatus.IDLE)
             {

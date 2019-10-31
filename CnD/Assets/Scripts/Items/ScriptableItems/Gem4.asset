@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66dba3402f84daf4abe5a3051e769599, type: 3}
   m_Name: Gem4
   m_EditorClassIdentifier: 
-  ID: 0
-  uiDisplay: {fileID: 21300000, guid: 6a9447f6c574fce4c9b19bc0203a54bb, type: 3}
+  ID: 3
+  uiDisplay: {fileID: 21300000, guid: 6db7966819a5069429317d87a5870d0f, type: 3}
   type: 3
   isStackable: 0
   description: 
