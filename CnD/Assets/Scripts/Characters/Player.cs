@@ -29,7 +29,7 @@ public class Player : Character
     // Start is called before the first frame update
     void Start()
     {
-        movSpeed = 0.05f;
+        movSpeed = 0.2f;
         stats = new Stats();
         SetStats();
         maxHealth = 50;
