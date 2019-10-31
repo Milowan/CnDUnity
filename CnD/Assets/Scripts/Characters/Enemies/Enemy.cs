@@ -11,6 +11,7 @@ public class Enemy : Character
     private Vector3 current;
     private Vector3 currentV;
     private Vector3 correction;
+    private bool hitWall = false;
     public float movDelay;
     protected float tDelayed;
     protected float attackCD;
@@ -22,7 +23,7 @@ public class Enemy : Character
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         currentV = body.velocity;
         if (tDelayed >= movDelay)
@@ -55,6 +56,15 @@ public class Enemy : Character
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Collision")
+        {
+            hitWall = true;
+        }
+        
+    }
+
     private void OnTriggerExit(Collider response)
     {
         if (response.gameObject.tag == "Player")
@@ -62,6 +72,15 @@ public class Enemy : Character
             status = CharacterStatus.IDLE;
             target = null;
         }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Collision")
+        {
+            hitWall = false;
+        }
+        
     }
 
     protected override void Attack()
@@ -93,7 +112,7 @@ public class Enemy : Character
         currentV = Vector3.ClampMagnitude(currentV + correction, movSpeed);
         pos.position += currentV;
 
-        if ((targetPos - current).magnitude < 0.025f)
+        if ((targetPos - current).magnitude < 1f)
         {
             if (status == CharacterStatus.IDLE)
             {
@@ -104,6 +123,13 @@ public class Enemy : Character
                 status = CharacterStatus.FIGHTING;
             }
             tDelayed = 0f;
+        }
+        if (hitWall)
+        {
+            if (status == CharacterStatus.IDLE)
+            {
+                targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax) + pos.position.x, Random.Range(wanderRangeMin, wanderRangeMax) + pos.position.y, 0f);
+            }
         }
     }
 
