@@ -11,14 +11,12 @@ public class Player : Character
     public GameObject inventoryUI;
     public GameObject hotbarUI;
     private Transform pos;
-
     //private Sword *sword;
     //private Armour *armour;
     //private Helmet *helmet;
 
 
     private Interactable interactable;
-
 
     // Inventory Vars //
     public InventoryObject inventory; // Set the inventory in the inspector with the Inventory ScriptableObject we created in the Editor
@@ -104,7 +102,7 @@ public class Player : Character
             Debug.Log("Cant Add Item");
         }
         
-         if (other.gameObject.tag == "Interactable")
+        if (other.gameObject.tag == "Interactable")
         {
           interactable = other.gameObject.GetComponent<Interactable>();
         }
