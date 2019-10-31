@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GemDatabase
   m_EditorClassIdentifier: 
   Items:
-  - {fileID: 11400000, guid: 242384c8ff67bc64d9e6fcaaccdcff63, type: 2}
-  - {fileID: 11400000, guid: 5d2ea7cc967dc45429e6671cccf80c3d, type: 2}
-  - {fileID: 11400000, guid: b97b26f54a2dfdc49b8ad6a400ea2580, type: 2}
-  - {fileID: 11400000, guid: 07156deab29099440a7aebdbcacb2914, type: 2}
+  - {fileID: 11400000, guid: f91003d9021c2f04a85a45ab48728024, type: 2}
+  - {fileID: 11400000, guid: 56fa0889ed4b30049972ea61b8516f9c, type: 2}
+  - {fileID: 11400000, guid: c609762161a32a440b6e3bf77c1ea723, type: 2}
+  - {fileID: 11400000, guid: 53e7824e52edd5143a7816f39c71d62a, type: 2}

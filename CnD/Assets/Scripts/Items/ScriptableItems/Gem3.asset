@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 087246769413f884b8b32786593283c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 5693da98928fbb74e836ca7fa759d135, type: 3}
   m_Name: Gem3
   m_EditorClassIdentifier: 
   ID: 2
