@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 1687482692705263974}
   - component: {fileID: 1304318136907837210}
   m_Layer: 0
-  m_Name: UI 1
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryPrefab: {fileID: 7074991694734387867, guid: 1507e78b0b87f614ba50e9648cbd8eda,
     type: 3}
-  inventory: {fileID: 11400000, guid: f468623772e4ab5499c50522820c2b56, type: 2}
+  inventory: {fileID: 0}
   slotLimit: 10
   XSTART: -133
   YSTART: 0
@@ -763,7 +763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.5, y: -432}
+  m_AnchoredPosition: {x: 327, y: -185}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4148870544323364582
@@ -1295,7 +1295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryPrefab: {fileID: 8390861718301928521, guid: 74a06b2d39a494d4eab6d718af4c8583,
     type: 3}
-  inventory: {fileID: 11400000, guid: f468623772e4ab5499c50522820c2b56, type: 2}
+  inventory: {fileID: 0}
   slotLimit: 10
   XSTART: -110
   YSTART: -20
@@ -1943,7 +1943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryPrefab: {fileID: 7074991694734387867, guid: 1507e78b0b87f614ba50e9648cbd8eda,
     type: 3}
-  inventory: {fileID: 11400000, guid: f468623772e4ab5499c50522820c2b56, type: 2}
+  inventory: {fileID: 0}
   slotLimit: 10
   XSTART: -133
   YSTART: 0
@@ -3294,7 +3294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryPrefab: {fileID: 8390861718301928521, guid: 74a06b2d39a494d4eab6d718af4c8583,
     type: 3}
-  inventory: {fileID: 11400000, guid: f468623772e4ab5499c50522820c2b56, type: 2}
+  inventory: {fileID: 0}
   slotLimit: 10
   XSTART: -110
   YSTART: -20
