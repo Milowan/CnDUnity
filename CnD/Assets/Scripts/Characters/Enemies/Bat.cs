@@ -10,7 +10,7 @@ public class Bat : Enemy
         maxHealth = 10f;
         attackCD = 2f;
         CDTimer = 0f;
-        movSpeed = 0.025f;
+        movSpeed = 0.05f;
         health = maxHealth;
         pos = GetComponent<Transform>();
         body = GetComponent<Rigidbody>();
