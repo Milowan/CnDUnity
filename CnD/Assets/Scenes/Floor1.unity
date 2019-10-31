@@ -229,6 +229,12 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7854713855302085986, guid: 4e09cc546edca96449963d0eefb7a585,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: a2480bc3dfb26c641acb7d8787341f58,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e09cc546edca96449963d0eefb7a585, type: 3}
 --- !u!1 &55091883 stripped
@@ -10811,7 +10817,7 @@ PrefabInstance:
     - target: {fileID: 433379680604359624, guid: 560b52dcf33818e40b3f06cbe18ebe00,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 433379680604359624, guid: 560b52dcf33818e40b3f06cbe18ebe00,
         type: 3}
@@ -10880,7 +10886,7 @@ PrefabInstance:
     - target: {fileID: 2955881990382286228, guid: e95c628ca3364c247a19f693f8fea56f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2955881990382286228, guid: e95c628ca3364c247a19f693f8fea56f,
         type: 3}
@@ -13393,7 +13399,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.08627451, g: 0.07450981, b: 0.09411766, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -14260,7 +14266,7 @@ PrefabInstance:
     - target: {fileID: 2317654227517752955, guid: 1732f46598ad09549bb205fe16f84274,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2317654227517752955, guid: 1732f46598ad09549bb205fe16f84274,
         type: 3}

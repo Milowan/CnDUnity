@@ -1947,7 +1947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryPrefab: {fileID: 7074991694734387867, guid: 39f9cfdacd1ac80418dba8e4e912eee2,
     type: 3}
-  inventory: {fileID: 0}
+  inventory: {fileID: 11400000, guid: a2480bc3dfb26c641acb7d8787341f58, type: 2}
   slotLimit: 10
   XSTART: -133
   YSTART: 0
