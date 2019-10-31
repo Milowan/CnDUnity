@@ -1947,7 +1947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryPrefab: {fileID: 7074991694734387867, guid: 39f9cfdacd1ac80418dba8e4e912eee2,
     type: 3}
-  inventory: {fileID: 11400000, guid: 29076201014cda74dad68fb817356f49, type: 2}
+  inventory: {fileID: 0}
   slotLimit: 10
   XSTART: -133
   YSTART: 0
@@ -2366,7 +2366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryPrefab: {fileID: 8390861718301928521, guid: cd731490cf3c34d4a8e9efd8a0fa3197,
     type: 3}
-  inventory: {fileID: 11400000, guid: 29076201014cda74dad68fb817356f49, type: 2}
+  inventory: {fileID: 11400000, guid: a2480bc3dfb26c641acb7d8787341f58, type: 2}
   slotLimit: 10
   XSTART: -210
   YSTART: 2
@@ -3003,7 +3003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryPrefab: {fileID: 8390861718301928521, guid: cd731490cf3c34d4a8e9efd8a0fa3197,
     type: 3}
-  inventory: {fileID: 11400000, guid: 29076201014cda74dad68fb817356f49, type: 2}
+  inventory: {fileID: 11400000, guid: a2480bc3dfb26c641acb7d8787341f58, type: 2}
   slotLimit: 10
   XSTART: -110
   YSTART: -20
