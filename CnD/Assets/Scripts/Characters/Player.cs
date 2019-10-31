@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Character
 {
@@ -28,8 +29,11 @@ public class Player : Character
     // Start is called before the first frame update
     void Start()
     {
-
-
+        movSpeed = 0.05f;
+        stats = new Stats();
+        SetStats();
+        maxHealth = 50;
+        health = maxHealth;
         pos = GetComponent<Transform>();
         pos.tag = "Player";
     }
@@ -46,6 +50,11 @@ public class Player : Character
         if (Input.GetButtonDown("Interact"))
         {
             Interact();
+        }
+
+        if (Input.GetButtonDown("MainAtk"))
+        {
+            Attack();
         }
 
         if (Input.GetButtonDown("Inventory") || Input.GetButtonDown("Cancel"))
@@ -105,16 +114,35 @@ public class Player : Character
         {
             interactable = null;
         }
+        if (response.gameObject.GetComponent<Enemy>() == target)
+        {
+            target = null;
+        }
+    }
+
+    protected override void SetStats()
+    {
+        stats.attack = 10f;
+        stats.defense = 1f;
+        stats.evasion = 15f;
     }
 
     protected override void Attack()
     {
-
+        if (target != null)
+        {
+            if (Random.Range(0, 100) > target.GetEvasion())
+            {
+                target.TakeDamage(GetAttack());
+            }
+        }
     }
 
     protected override void Die()
     {
         //restart level
+        status = CharacterStatus.DEAD;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void Interact()
