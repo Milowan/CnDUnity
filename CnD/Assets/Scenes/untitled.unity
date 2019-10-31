@@ -225,8 +225,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status: 0
-  maxHealth: 50
-  movSpeed: 2
   inventoryUI: {fileID: 0}
   hotbarUI: {fileID: 0}
   inventory: {fileID: 0}
