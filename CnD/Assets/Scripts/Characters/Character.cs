@@ -15,9 +15,9 @@ public class Character : MonoBehaviour
 
     protected Stats stats;
     public CharacterStatus status;
-    public float maxHealth;
-    private float health;
-    public float movSpeed;
+    protected float maxHealth;
+    protected float health;
+    protected float movSpeed;
 
     //private Stats stats;
     protected float combatTimer;
@@ -33,13 +33,28 @@ public class Character : MonoBehaviour
 
     }
 
-    protected void TakeDamage(float dmg)
+    public void TakeDamage(float dmg)
     {
-        health -= dmg;
+        health -= dmg / GetDefense();
         if (health <= 0)
         {
             Die();
         }
+    }
+
+    public float GetEvasion()
+    {
+        return stats.evasion;
+    }
+
+    public float GetAttack()
+    {
+        return stats.attack;
+    }
+
+    public float GetDefense()
+    {
+        return stats.defense;
     }
 
     protected virtual void Die()
