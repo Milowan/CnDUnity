@@ -8,6 +8,7 @@ public enum ItemType
     Gear,
     Armour,
     Consumable,
+    Gem,
     Default
 }
 public abstract class ItemObject : ScriptableObject

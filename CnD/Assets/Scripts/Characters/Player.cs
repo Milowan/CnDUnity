@@ -22,6 +22,8 @@ public class Player : Character
 
     // Inventory Vars //
     public InventoryObject inventory; // Set the inventory in the inspector with the Inventory ScriptableObject we created in the Editor
+    public InventoryObject GemsInventory;
+
     private int slotLimit;
 
 
@@ -87,6 +89,13 @@ public class Player : Character
         {
             var item = other.GetComponent<Grounditem>();
             inventory.AddItem(new item(item._item), 1);
+            Destroy(other.gameObject);
+            slotLimit++;
+        }
+        if (other.gameObject.CompareTag("Gem") && slotLimit < 12)
+        {
+            var item = other.GetComponent<Grounditem>();
+            GemsInventory.AddItem(new item(item._item), 1);
             Destroy(other.gameObject);
             slotLimit++;
         }
@@ -156,5 +165,7 @@ public class Player : Character
     private void OnApplicationQuit()
     {
         inventory.container.items.Clear();
+        GemsInventory.container.items.Clear();
+
     }
 }

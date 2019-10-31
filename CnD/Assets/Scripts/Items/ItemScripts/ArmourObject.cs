@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class ArmourObject : ItemObject
 {
-    public float STRBonus;
-    public float DexBonus;
-    public float ConBonus;
+    public float EVBonus;
+    public float Atkonus;
     public float DefValue;
 
     public void Awake()
