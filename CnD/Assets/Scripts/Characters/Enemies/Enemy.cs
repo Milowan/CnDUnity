@@ -19,14 +19,7 @@ public class Enemy : Character
     protected Transform pos;
     protected Rigidbody body;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        pos = GetComponent<Transform>();
-        body = GetComponent<Rigidbody>();
-        tDelayed = movDelay;
-        targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f);
-    }
+
 
     // Update is called once per frame
     void Update()
