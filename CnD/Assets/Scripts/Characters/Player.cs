@@ -57,7 +57,7 @@ public class Player : Character
 
         if (Input.GetButtonDown("MainAtk"))
         {
-            Attack();
+            Strike();
         }
 
         if (Input.GetButtonDown("Map"))
@@ -165,7 +165,7 @@ public class Player : Character
         stats.evasion = 15f;
     }
 
-    protected override void Attack()
+    protected override void Strike()
     {
         if (target != null)
         {
