@@ -17,15 +17,13 @@ public class Enemy : Character
     protected float attackCD;
     protected float CDTimer;
 
-    protected Transform pos;
-    protected Rigidbody body;
-
 
 
     // Update is called once per frame
     void FixedUpdate()
     {
         currentV = body.velocity;
+        SetDirection();
         if (tDelayed >= movDelay)
         {
             if (status == CharacterStatus.IDLE)
@@ -39,6 +37,10 @@ public class Enemy : Character
             else if (status == CharacterStatus.FIGHTING)
             {
                 Strike();
+            }
+            else if (status == CharacterStatus.DEAD)
+            {
+                GetComponent<SphereCollider>().enabled = false;
             }
         }
         else
