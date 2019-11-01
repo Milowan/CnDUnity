@@ -14,7 +14,7 @@ public class PressurePlates : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             door.m_doorCollider.enabled = false;
-            door.setIsOpen(true);
+            door.doorToggle();
 
             GetComponent<SpriteRenderer>().sprite = spOn;
         }
@@ -32,7 +32,7 @@ public class PressurePlates : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             door.m_doorCollider.enabled = false;
-            door.setIsOpen(false);
+            door.doorToggle();
             GetComponent<SpriteRenderer>().sprite = spOff;
         }
     }

@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Gem
   - Collision
+  - FoW
   layers:
   - Default
   - TransparentFX
@@ -62,11 +63,17 @@ TagManager:
   - name: Player
     uniqueID: 32451785
     locked: 0
+  - name: Enemies
+    uniqueID: 1083361529
+    locked: 0
+  - name: Items
+    uniqueID: 1760120399
+    locked: 0
   - name: Walls_BeforeP
     uniqueID: 1144945841
     locked: 0
-  - name: Enemies
-    uniqueID: 1083361529
+  - name: FoW
+    uniqueID: 665207833
     locked: 0
   - name: UI
     uniqueID: 866210857
