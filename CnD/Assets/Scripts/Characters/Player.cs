@@ -24,6 +24,9 @@ public class Player : Character
 
     private int slotLimit;
 
+    // Map Vars //
+    public GameObject mapUI;
+
 
 
     // Start is called before the first frame update
@@ -57,24 +60,48 @@ public class Player : Character
             Attack();
         }
 
+        if (Input.GetButtonDown("Map"))
+        {
+            if (gamePaused)
+            {
+                UnpauseGame();
+                mapUI.SetActive(false);
+            }
+            else
+            {
+                PauseGame();
+                mapUI.SetActive(true);
+            }
+        }
+
         if (Input.GetButtonDown("Inventory") || Input.GetButtonDown("Cancel"))
         {
             if (gamePaused)
             {
-                hotbarUI.SetActive(true);
-                Time.timeScale = 1f;
+                UnpauseGame();
                 inventoryUI.SetActive(false);
-                gamePaused = false;
             }
             else
             {
-                hotbarUI.SetActive(false);
-                Time.timeScale = 0f;
+                PauseGame();
                 inventoryUI.SetActive(true);
-                gamePaused = true;
-
             }
         }
+    }
+
+    public void PauseGame()
+    {
+        hotbarUI.SetActive(false);
+        Time.timeScale = 0f;
+        gamePaused = true;
+    }
+
+    public void UnpauseGame()
+    {
+        hotbarUI.SetActive(true);
+        Time.timeScale = 1f;
+        gamePaused = false;
+
     }
 
 
@@ -108,7 +135,7 @@ public class Player : Character
         
         if (other.gameObject.tag == "Interactable")
         {
-          interactable = other.gameObject.GetComponent<Interactable>();
+            interactable = other.gameObject.GetComponent<Interactable>();
         }
         if (other.gameObject.tag == "Enemy")
         {
