@@ -27,11 +27,13 @@ public class Doors : Interactable
         {
             m_doorCollider.enabled = false;
             GetComponent<SpriteRenderer>().sprite = spOpen;
+            setIsOpen(false);
         }
         else
         {
             m_doorCollider.enabled = true;
             GetComponent<SpriteRenderer>().sprite = spClosed;
+            setIsOpen(true);
         }
     }
 }

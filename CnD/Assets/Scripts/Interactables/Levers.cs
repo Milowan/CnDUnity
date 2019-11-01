@@ -12,11 +12,13 @@ public class Levers : Interactable
         {
             door.setIsOpen(false);
             GetComponent<SpriteRenderer>().sprite = spOn;
+            setIsOn(!getIsOn());
         }
         else
         {
             door.setIsOpen(true);
             GetComponent<SpriteRenderer>().sprite = spOff;
+            setIsOn(!getIsOn());
         }
 
         setIsOn(false);
