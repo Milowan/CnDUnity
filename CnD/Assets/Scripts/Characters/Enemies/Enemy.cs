@@ -38,6 +38,10 @@ public class Enemy : Character
             {
                 Strike();
             }
+            else if (status == CharacterStatus.DEAD)
+            {
+                GetComponent<SphereCollider>().enabled = false;
+            }
         }
         else
         {
