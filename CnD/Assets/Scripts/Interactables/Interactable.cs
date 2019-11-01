@@ -7,7 +7,6 @@ public class Interactable : MonoBehaviour
     private Player player;
 
     protected bool isOn = false;
-    protected bool isOpen = false;
 
     public virtual void act()
     {
@@ -16,5 +15,9 @@ public class Interactable : MonoBehaviour
     public bool getIsOn()
     {
         return isOn;
+    }
+    public void setIsOn(bool change)
+    {
+        isOn = change;
     }
 }

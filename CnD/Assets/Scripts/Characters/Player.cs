@@ -7,18 +7,16 @@ public class Player : Character
 {
     public static bool gamePaused = false;       // Pausing for inventory
 
-
+    private GemItem gem;
     public GameObject inventoryUI;
     public GameObject hotbarUI;
     private Transform pos;
-
     //private Sword *sword;
     //private Armour *armour;
     //private Helmet *helmet;
 
 
     private Interactable interactable;
-
 
     // Inventory Vars //
     public InventoryObject inventory; // Set the inventory in the inspector with the Inventory ScriptableObject we created in the Editor
@@ -91,6 +89,10 @@ public class Player : Character
             inventory.AddItem(new item(item._item), 1);
             Destroy(other.gameObject);
             slotLimit++;
+            if ( gem == other.gameObject.GetComponent<GemItem>())
+            {
+                gem.SetPickedup();
+            }
         }
         if (other.gameObject.CompareTag("Gem") && slotLimit < 12)
         {
@@ -104,7 +106,7 @@ public class Player : Character
             Debug.Log("Cant Add Item");
         }
         
-         if (other.gameObject.tag == "Interactable")
+        if (other.gameObject.tag == "Interactable")
         {
           interactable = other.gameObject.GetComponent<Interactable>();
         }

@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FinalDoor : MonoBehaviour
+public class FinalDoor : Doors
 {
-    public Sprite spOpen;
+    public bool allGems;
     public Dais daisOne;
     public Dais daisTwo;
     public Dais daisThree;
     public Dais daisFour;
-    public Doors finalDoor;
-    public void fixedupdate()
+    public void FixedUpdate()
     {
-        if(daisOne.getIsOn() && daisTwo.getIsOn() && daisThree.getIsOn() && daisFour.getIsOn())
+        if(daisOne.hasGem && daisTwo.hasGem && daisThree.hasGem && daisFour.hasGem)
         {
-            finalDoor.m_doorCollider.enabled = false;
-            finalDoor.GetComponent<SpriteRenderer>().sprite = spOpen;
+            allGems = true;
+            m_doorCollider.enabled = false;
+            GetComponent<SpriteRenderer>().sprite = spOpen;
         }
     }
 
