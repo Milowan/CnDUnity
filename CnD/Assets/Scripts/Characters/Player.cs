@@ -39,6 +39,8 @@ public class Player : Character
         pos = GetComponent<Transform>();
         body = GetComponent<Rigidbody>();
         pos.tag = "Player";
+        InitAtkPool(mainAtkPool, mainAtkPoolSize, mainAtk);
+        InitAtkPool(offAtkPool, offAtkPoolSize, offAtk);
     }
 
     private void FixedUpdate()
