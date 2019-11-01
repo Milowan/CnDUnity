@@ -28,7 +28,7 @@ public class Character : MonoBehaviour
 
     }
 
-    protected virtual void Attack()
+    protected virtual void Strike()
     {
 
     }

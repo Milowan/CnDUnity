@@ -38,7 +38,7 @@ public class Enemy : Character
             }
             else if (status == CharacterStatus.FIGHTING)
             {
-                Attack();
+                Strike();
             }
         }
         else
@@ -83,7 +83,7 @@ public class Enemy : Character
         
     }
 
-    protected override void Attack()
+    protected override void Strike()
     {
         if (target != null)
         {
