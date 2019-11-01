@@ -16,24 +16,18 @@ public class Doors : Interactable
     {
         return isOpen;
     }
-    public void setIsOpen(bool change)
-    {
-        isOpen = change;
-        doorToggle();
-    }
     public void doorToggle()
     {
         if (getIsOpen() == true)
         {
-            m_doorCollider.enabled = false;
-            GetComponent<SpriteRenderer>().sprite = spOpen;
-            setIsOpen(false);
+            m_doorCollider.enabled = true;
+            GetComponent<SpriteRenderer>().sprite = spClosed;
         }
         else
         {
-            m_doorCollider.enabled = true;
-            GetComponent<SpriteRenderer>().sprite = spClosed;
-            setIsOpen(true);
+            m_doorCollider.enabled = false;
+            GetComponent<SpriteRenderer>().sprite = spOpen;
         }
+        isOpen = !isOpen;
     }
 }
