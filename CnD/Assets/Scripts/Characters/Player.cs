@@ -174,12 +174,18 @@ public class Player : Character
 
     protected override void Strike()
     {
-        if (target != null)
+        Attack currentAtk = null;
+        for (int i = 0; i < mainAtkPoolSize; ++i)
         {
-            if (Random.Range(0, 100) > target.GetEvasion())
+            if (!mainAtkPool[i].GetActive())
             {
-                target.TakeDamage(GetAttack());
+                currentAtk = mainAtkPool[i];
+                break;
             }
+        }
+        if (currentAtk != null)
+        {
+            currentAtk.Init(GetAttack(), facing, pos);
         }
     }
 

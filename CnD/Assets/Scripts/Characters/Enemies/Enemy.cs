@@ -91,11 +91,20 @@ public class Enemy : Character
         {
             if (CDTimer >= attackCD)
             {
-                if (Random.Range(0, 100) > target.GetEvasion())
+                Attack currentAtk = null;
+                for (int i = 0; i < mainAtkPoolSize; ++i)
                 {
-                    target.TakeDamage(GetAttack());
+                    if (!mainAtkPool[i].GetActive())
+                    {
+                        currentAtk = mainAtkPool[i];
+                        break;
+                    }
                 }
-                CDTimer = 0;
+                if (currentAtk != null)
+                {
+                    currentAtk.Init(GetAttack(), facing, pos);
+                    CDTimer = 0;
+                }
             }
             else
             {
