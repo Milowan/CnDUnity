@@ -10,7 +10,6 @@ public class Player : Character
     private GemItem gem;
     public GameObject inventoryUI;
     public GameObject hotbarUI;
-    private Transform pos;
     //private Sword *sword;
     //private Armour *armour;
     //private Helmet *helmet;
@@ -35,12 +34,14 @@ public class Player : Character
         maxHealth = 50;
         health = maxHealth;
         pos = GetComponent<Transform>();
+        body = GetComponent<Rigidbody>();
         pos.tag = "Player";
     }
 
     private void FixedUpdate()
     {
         pos.Translate(Input.GetAxis("Horizontal") * movSpeed, Input.GetAxis("Vertical") * movSpeed, 0f);
+        SetDirection();
 
     }
     // Update is called once per frame
