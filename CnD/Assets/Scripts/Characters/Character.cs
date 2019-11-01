@@ -20,9 +20,16 @@ public class Character : MonoBehaviour
     protected Transform pos;
     protected Rigidbody body;
 
+    protected Animator m_animator;
+
     //private Stats stats;
     protected float combatTimer;
     protected Character target;
+
+    private void Start()
+    {
+        m_animator = GetComponent<Animator>();
+    }
 
     protected virtual void SetStats()
     {
@@ -32,6 +39,21 @@ public class Character : MonoBehaviour
     protected virtual void Strike()
     {
 
+    }
+
+    protected virtual void StartAttackAnimation()
+    {
+        m_animator.SetBool("Attack", true);
+    }
+
+    protected virtual void StartIdleAnimation()
+    {
+        m_animator.SetBool("Idle", true);
+    }
+
+    protected virtual void StartDeathAnimation()
+    {
+        m_animator.SetBool("Dead", true);
     }
 
     protected void InitAtkPool(List<Attack> pool, int poolSize, GameObject prefab)
