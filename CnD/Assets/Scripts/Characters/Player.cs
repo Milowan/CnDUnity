@@ -121,6 +121,10 @@ public class Player : Character
                 gem.SetPickedup();
             }
         }
+        if (other.gameObject.CompareTag("FoW"))
+        {
+            Destroy(other.gameObject);
+        }
         if (other.gameObject.CompareTag("Gem") && slotLimit < 12)
         {
             var item = other.GetComponent<Grounditem>();
