@@ -16,6 +16,7 @@ public class Enemy : Character
     protected float tDelayed;
     protected float attackCD;
     protected float CDTimer;
+    protected float maxFight = 2;
 
 
 
@@ -123,7 +124,7 @@ public class Enemy : Character
         currentV = Vector3.ClampMagnitude(currentV + correction, movSpeed);
         pos.position += currentV;
 
-        if ((targetPos - current).magnitude < 2f)
+        if ((targetPos - current).magnitude < maxFight)
         {
             if (status == CharacterStatus.IDLE)
             {
@@ -134,6 +135,13 @@ public class Enemy : Character
                 status = CharacterStatus.FIGHTING;
             }
             tDelayed = 0f;
+        }
+        else
+        {
+            if (status == CharacterStatus.FIGHTING)
+            {
+                status = CharacterStatus.CHASING;
+            }
         }
         if (hitWall)
         {
