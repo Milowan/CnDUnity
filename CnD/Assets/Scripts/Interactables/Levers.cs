@@ -8,7 +8,7 @@ public class Levers : Interactable
     public Doors door;
     public override void act()
     {
-        if (!isOn)
+        if (getIsOn())
         {
             door.setIsOpen(false);
             GetComponent<SpriteRenderer>().sprite = spOn;
@@ -19,7 +19,7 @@ public class Levers : Interactable
             GetComponent<SpriteRenderer>().sprite = spOff;
         }
 
-        isOn = !isOn;
+        setIsOn(false);
     }
 
 }
