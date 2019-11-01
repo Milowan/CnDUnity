@@ -30,6 +30,11 @@ public class Attack : MonoBehaviour
         dmg = atk;
     }
 
+    public bool GetActive()
+    {
+        return active;
+    }
+
     // Update is called once per frame
     void Update()
     {

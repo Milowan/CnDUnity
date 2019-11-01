@@ -18,6 +18,8 @@ public class Bat : Enemy
         targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f);
         stats = new Stats();
         SetStats();
+        InitAtkPool(mainAtkPool, mainAtkPoolSize, mainAtk);
+        InitAtkPool(offAtkPool, offAtkPoolSize, offAtk);
     }
 
     protected override void Die()
