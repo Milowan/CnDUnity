@@ -7,6 +7,8 @@ public class Doors : Interactable
     public Collider m_doorCollider;
     public bool isOpen = false;
     public Sprite spOpen, spClosed;
+    public AudioClip clipOpen, clipClosed;
+    public AudioSource doorSFX;
     private void Start()
     {
         m_doorCollider = GetComponent<Collider>();
@@ -22,11 +24,15 @@ public class Doors : Interactable
         {
             m_doorCollider.enabled = true;
             GetComponent<SpriteRenderer>().sprite = spClosed;
+            GetComponent<AudioSource>().clip = clipClosed;
+            doorSFX.Play();
         }
         else
         {
             m_doorCollider.enabled = false;
             GetComponent<SpriteRenderer>().sprite = spOpen;
+            GetComponent<AudioSource>().clip = clipOpen;
+            doorSFX.Play();
         }
         isOpen = !isOpen;
     }

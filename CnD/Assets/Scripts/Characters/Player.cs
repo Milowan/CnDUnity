@@ -13,7 +13,7 @@ public class Player : Character
     //private Sword *sword;
     //private Armour *armour;
     //private Helmet *helmet;
-
+    public AudioSource playerAudio;
 
     private Interactable interactable;
 

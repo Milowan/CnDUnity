@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bat : Enemy
 {
-
+    public AudioSource batSFX;
     private void Start()
     {
         maxHealth = 10f;
