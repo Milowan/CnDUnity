@@ -1,16 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance = null;
-    public GameObject startMenu;
+    public GameObject startScreen;
     public GameObject floor1;
-    public GameObject floor2;
     void Awake()
     {
-        startMenu.SetActive(true);
+        startScreen.SetActive(true);
         SetInstance();
     }
 
