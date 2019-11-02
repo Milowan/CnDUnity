@@ -19942,6 +19942,10 @@ PrefabInstance:
       propertyPath: batSFX
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1838465221, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
 --- !u!1001 &976723859
@@ -20425,6 +20429,10 @@ PrefabInstance:
       propertyPath: batSFX
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1838465221, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
 --- !u!1 &1087378848
@@ -20722,6 +20730,10 @@ PrefabInstance:
         type: 3}
       propertyPath: batSFX
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838465221, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
@@ -21497,6 +21509,10 @@ PrefabInstance:
       propertyPath: batSFX
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1838465221, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
 --- !u!1 &1363761251
@@ -21752,52 +21768,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1369971334
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1369971335}
-  - component: {fileID: 1369971336}
-  m_Layer: 0
-  m_Name: LevelManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1369971335
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369971334}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.58374023, y: 16.292053, z: -0.54}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1740357019}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1369971336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369971334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 521c01ed652b81f43880ed4aff251bcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startScreen: {fileID: 0}
-  deathScreen: {fileID: 0}
-  floor1: {fileID: 1740357017}
 --- !u!4 &1385525523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1170195098344397146, guid: d0a39cae05cd71649ba12f9fe78bef42,
@@ -22641,6 +22611,10 @@ PrefabInstance:
         type: 3}
       propertyPath: batSFX
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838465221, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
@@ -24816,6 +24790,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1740357019}
   - component: {fileID: 1740357018}
+  - component: {fileID: 1740357020}
   m_Layer: 0
   m_Name: Floor1
   m_TagString: Untagged
@@ -24852,10 +24827,21 @@ Transform:
   - {fileID: 775279608}
   - {fileID: 1504139633}
   - {fileID: 568334779}
-  - {fileID: 1369971335}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1740357020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740357017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ebaba97aad29624681aa061934025ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1743700910
 GameObject:
   m_ObjectHideFlags: 0
@@ -25028,6 +25014,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838465221, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
