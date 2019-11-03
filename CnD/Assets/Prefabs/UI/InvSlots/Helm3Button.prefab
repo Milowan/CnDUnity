@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2755550139497509316}
   - component: {fileID: 3053371210089553449}
   - component: {fileID: 7113970244409343330}
+  - component: {fileID: 114635009188037744}
   m_Layer: 5
   m_Name: Helm3Button
   m_TagString: Untagged
@@ -113,3 +114,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &114635009188037744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280291819319493912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f66834e2d8fa1146aacf30a9183613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 928158032949923571, guid: fca0c4f3e4d0c4540961cbd991d54e42, type: 3}

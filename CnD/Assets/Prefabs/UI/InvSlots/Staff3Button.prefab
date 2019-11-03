@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4102698320161704992}
   - component: {fileID: 3786921258824278989}
   - component: {fileID: 8965538883465232518}
+  - component: {fileID: 114256382766056996}
   m_Layer: 5
   m_Name: Staff3Button
   m_TagString: Untagged
@@ -113,3 +114,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &114256382766056996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8924677558208493820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f66834e2d8fa1146aacf30a9183613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 4383487572907584461, guid: ed35a334a4c23c84680a8daed3640352, type: 3}

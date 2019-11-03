@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4657591700109093547}
   - component: {fileID: 5530834075948107078}
   - component: {fileID: 299311834173679117}
+  - component: {fileID: 114917453693564306}
   m_Layer: 5
   m_Name: Sword3Button
   m_TagString: Untagged
@@ -113,3 +114,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &114917453693564306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258519852773351031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f66834e2d8fa1146aacf30a9183613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 2093521821921938703, guid: 9d826582124fd484bab08d089a497a22, type: 3}

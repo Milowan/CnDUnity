@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 91373248910453971}
   - component: {fileID: 947710634010329918}
   - component: {fileID: 5026253588582015093}
+  - component: {fileID: 114637745125799452}
   m_Layer: 5
   m_Name: Potion3Button
   m_TagString: Untagged
@@ -113,3 +114,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &114637745125799452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4787884863551805455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f66834e2d8fa1146aacf30a9183613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 5389596543898376528, guid: 90d642fce892639418ea0e88b5b5c814, type: 3}

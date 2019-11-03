@@ -12,7 +12,7 @@ public class Chests : Interactable
     {
         if(!isOpen)
         {
-            Vector3 position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            Vector3 position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
             isOpen = true;
             if (getIsOpen() == true)
             {

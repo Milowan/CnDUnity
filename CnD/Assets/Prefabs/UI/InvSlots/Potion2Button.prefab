@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4460036320839320259}
   - component: {fileID: 3568915615877688622}
   - component: {fileID: 8746398503175360101}
+  - component: {fileID: 114705093142415260}
   m_Layer: 5
   m_Name: Potion2Button
   m_TagString: Untagged
@@ -113,3 +114,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &114705093142415260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9137909135089186335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f66834e2d8fa1146aacf30a9183613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 2515013337626674177, guid: a8bb9b4dd796d674da4d316543a24b6f, type: 3}

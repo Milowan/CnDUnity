@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2973342102548324969}
   - component: {fileID: 2675420011112631684}
   - component: {fileID: 7910333730062495439}
+  - component: {fileID: 114562761612700642}
   m_Layer: 5
   m_Name: Helm1Button
   m_TagString: Untagged
@@ -113,3 +114,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &114562761612700642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7671330514311403189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f66834e2d8fa1146aacf30a9183613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 4400143305843220521, guid: 834f27f03138f974d9575f9535a30b1e, type: 3}

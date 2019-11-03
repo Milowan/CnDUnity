@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8858145913120596988}
   - component: {fileID: 8542231688286931985}
   - component: {fileID: 4497473942630494042}
+  - component: {fileID: 114585994882952626}
   m_Layer: 5
   m_Name: Sword2Button
   m_TagString: Untagged
@@ -113,3 +114,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &114585994882952626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4168943817289881376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f66834e2d8fa1146aacf30a9183613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 8647631639047138356, guid: 3a4f02572795eee4d843f83cbad4a9c3, type: 3}

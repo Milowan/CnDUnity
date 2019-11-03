@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1698745828733244086}
   - component: {fileID: 2013468453546917211}
   - component: {fileID: 5987359966814739984}
+  - component: {fileID: 114920670178971460}
   m_Layer: 5
   m_Name: 'Gem4Button '
   m_TagString: Untagged
@@ -113,3 +114,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &114920670178971460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6099647143229531754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f66834e2d8fa1146aacf30a9183613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 8821687060428440387, guid: e6faf7e00432a6a4d865ebf08876fe55, type: 3}

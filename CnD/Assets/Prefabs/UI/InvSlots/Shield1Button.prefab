@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3354783626201704288}
   - component: {fileID: 2516662680241080461}
   - component: {fileID: 7641163334426684358}
+  - component: {fileID: 114182113757898840}
   m_Layer: 5
   m_Name: Shield1Button
   m_TagString: Untagged
@@ -113,3 +114,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &114182113757898840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7907179076466693052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f66834e2d8fa1146aacf30a9183613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 1250198537899552502, guid: 6965af334afc48c45aec72c6de50f279, type: 3}
