@@ -65,13 +65,11 @@ public class Player : Character
         {
             if (gamePaused)
             {
-                UnpauseGame();
-                mapUI.SetActive(false);
+                CloseMapMenu();
             }
             else
             {
-                PauseGame();
-                mapUI.SetActive(true);
+                MapMenu();
             }
         }
 
@@ -80,15 +78,11 @@ public class Player : Character
             if (gamePaused)
             {
                 UnpauseGame();
-                inventoryUI.SetActive(false);
-                //hotbarUI.SetActive(false);
 
             }
             else
             {
                 PauseGame();
-                inventoryUI.SetActive(true);
-                //inventoryUI.SetActive(true);
             }
         }
     }
@@ -97,14 +91,32 @@ public class Player : Character
     {
         Time.timeScale = 0f;
         gamePaused = true;
+        inventoryUI.SetActive(true);
+
     }
 
     public void UnpauseGame()
     {
         Time.timeScale = 1f;
         gamePaused = false;
+        inventoryUI.SetActive(false);
+
 
     }
+    public void MapMenu()
+    {
+        gamePaused = true;
+        mapUI.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void CloseMapMenu()
+    {
+        gamePaused = false;
+        mapUI.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
 
 
 
