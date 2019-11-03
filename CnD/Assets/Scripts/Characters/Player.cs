@@ -6,23 +6,12 @@ using UnityEngine.SceneManagement;
 public class Player : Character
 {
     public static bool gamePaused = false;       // Pausing for inventory
-
-    private GemItem gem;
-    public GameObject inventoryUI;
-    public GameObject hotbarUI;
     //private Sword *sword;
     //private Armour *armour;
     //private Helmet *helmet;
     public AudioSource playerAudio;
-
     private Interactable interactable;
-
     // Inventory Vars //
-    public InventoryObject inventory; // Set the inventory in the inspector with the Inventory ScriptableObject we created in the Editor
-    public InventoryObject GemsInventory;
-
-    private int slotLimit;
-
     // Map Vars //
     public GameObject mapUI;
 
@@ -82,26 +71,27 @@ public class Player : Character
             if (gamePaused)
             {
                 UnpauseGame();
-                inventoryUI.SetActive(false);
+                //inventoryUI.SetActive(false);
+                //hotbarUI.SetActive(false);
+
             }
             else
             {
                 PauseGame();
-                inventoryUI.SetActive(true);
+                //hotbarUI.SetActive(true);
+                //inventoryUI.SetActive(true);
             }
         }
     }
 
     public void PauseGame()
     {
-        hotbarUI.SetActive(false);
         Time.timeScale = 0f;
         gamePaused = true;
     }
 
     public void UnpauseGame()
     {
-        hotbarUI.SetActive(true);
         Time.timeScale = 1f;
         gamePaused = false;
 
@@ -113,31 +103,10 @@ public class Player : Character
     private void OnTriggerEnter(Collider other)
     {
         // If the player collides with an Item, and if our slotLimit is less than 10, 1 item gets added to the inventory
-        if (other.gameObject.CompareTag("Item") && slotLimit < 12)
-        {
-            var item = other.GetComponent<Grounditem>();
-            inventory.AddItem(new item(item._item), 1);
-            Destroy(other.gameObject);
-            slotLimit++;
-            if ( gem == other.gameObject.GetComponent<GemItem>())
-            {
-                gem.SetPickedup();
-            }
-        }
+       
         if (other.gameObject.CompareTag("FoW"))
         {
             Destroy(other.gameObject);
-        }
-        if (other.gameObject.CompareTag("Gem") && slotLimit < 12)
-        {
-            var item = other.GetComponent<Grounditem>();
-            GemsInventory.AddItem(new item(item._item), 1);
-            Destroy(other.gameObject);
-            slotLimit++;
-        }
-        else
-        {
-            Debug.Log("Cant Add Item");
         }
         
         if (other.gameObject.tag == "Interactable")
@@ -206,8 +175,6 @@ public class Player : Character
         // We need to clear the inventory when the game closes, or the game will remember our inventory from the previous play and produces serios problems
     private void OnApplicationQuit()
     {
-        inventory.container.items.Clear();
-        GemsInventory.container.items.Clear();
 
     }
 }

@@ -2,30 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvSlot : MonoBehaviour
+public class Slot : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
-        return;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private Inventory inventory;
     public int i;
+    private void Start()
+    {
+        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+    }
 
+    private void Update()
+    {
+        if (transform.childCount <= 0)
+        {
+            inventory.isFull[i] = false;
+        }
+    }
     public void DropItem()
     {
         foreach (Transform child in transform)
         {
-            child.GetComponent<DropSCript>().SpawnDroppedItem();
+            child.GetComponent<Spawn>().SpawnDroppedItem();
             GameObject.Destroy(child.gameObject);
         }
     }
-
 }
