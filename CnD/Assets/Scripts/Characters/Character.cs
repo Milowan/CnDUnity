@@ -22,7 +22,7 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
-        m_animator = GetComponent<Animator>();
+
     }
 
     protected virtual void SetStats()
@@ -37,17 +37,27 @@ public class Character : MonoBehaviour
 
     protected virtual void StartAttackAnimation()
     {
+        ResetAnimations();
         m_animator.SetBool("Attack", true);
     }
 
     protected virtual void StartIdleAnimation()
     {
+        ResetAnimations();
         m_animator.SetBool("Idle", true);
     }
 
     protected virtual void StartDeathAnimation()
     {
+        ResetAnimations();
         m_animator.SetBool("Dead", true);
+    }
+
+    protected virtual void ResetAnimations()
+    {
+        m_animator.SetBool("Attack", false);
+        m_animator.SetBool("Dead", false);
+        m_animator.SetBool("Idle", false);
     }
 
     protected void InitAtkPool(List<Attack> pool, int poolSize, GameObject prefab)
@@ -67,18 +77,20 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void SetDirection()
+    public void SetDirection(Vector3 v)
     {
-        Vector3 direction = body.velocity;
+        Vector3 direction = v;
         if (Math.Abs(direction.x) > Math.Abs(direction.y))
         {
             if (direction.x > 0)
             {
                 facing = Direction.RIGHT;
+                GetComponent<SpriteRenderer>().flipX = false;
             }
             else if (direction.x < 0)
             {
                 facing = Direction.LEFT;
+                GetComponent<SpriteRenderer>().flipX = true;
             }
         }
         else if (Math.Abs(direction.x) < Math.Abs(direction.y))

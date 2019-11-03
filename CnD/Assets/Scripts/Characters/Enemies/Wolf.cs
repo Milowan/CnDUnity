@@ -11,14 +11,13 @@ public class Wolf : Enemy
         attackCD = 1.5f;
         CDTimer = 0f;
         health = maxHealth;
+        movSpeed = 0.1f;
         pos = GetComponent<Transform>();
         body = GetComponent<Rigidbody>();
         tDelayed = movDelay;
         targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f);
         stats = new Stats();
         SetStats();
-        //InitAtkPool(mainAtkPool, mainAtkPoolSize, mainAtk);
-        //InitAtkPool(offAtkPool, offAtkPoolSize, offAtk);
     }
 
     // Update is called once per frame

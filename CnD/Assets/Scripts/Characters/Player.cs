@@ -10,25 +10,22 @@ public class Player : Character
     //private Armour *armour;
     //private Helmet *helmet;
     public AudioSource playerAudio;
-    public int mainAtkPoolSize;
-    public int offAtkPoolSize;
-    public GameObject mainAtk;
-    public GameObject offAtk;
-    protected List<Attack> mainAtkPool;
-    protected List<Attack> offAtkPool;
     private Interactable interactable;
 
     // Inventory Vars //
     // Map Vars //
     public GameObject mapUI;
     public GameObject inventoryUI;
+    private Vector3 velocity;
 
-
-
+    private float animTimer;
+    private float animTimeCounter;
 
     // Start is called before the first frame update
     void Start()
     {
+        animTimer = 0.5f;
+        m_animator = GetComponent<Animator>();
         movSpeed = 0.2f;
         stats = new Stats();
         SetStats();
@@ -37,14 +34,13 @@ public class Player : Character
         pos = GetComponent<Transform>();
         body = GetComponent<Rigidbody>();
         pos.tag = "Player";
-        InitAtkPool(mainAtkPool, mainAtkPoolSize, mainAtk);
-        InitAtkPool(offAtkPool, offAtkPoolSize, offAtk);
     }
 
     private void FixedUpdate()
     {
-        pos.Translate(Input.GetAxis("Horizontal") * movSpeed, Input.GetAxis("Vertical") * movSpeed, 0f);
-        SetDirection();
+        velocity.Set(Input.GetAxis("Horizontal") * movSpeed, Input.GetAxis("Vertical") * movSpeed, 0f);
+        pos.Translate(velocity);
+        SetDirection(velocity);
 
     }
     // Update is called once per frame
@@ -85,6 +81,19 @@ public class Player : Character
                 PauseGame();
             }
         }
+        if (status == CharacterStatus.ATTACKING)
+        {
+            if (animTimeCounter < animTimer)
+            {
+                animTimeCounter += Time.deltaTime;
+            }
+            else if (animTimeCounter >= animTimer)
+            {
+                animTimeCounter = 0;
+                StartIdleAnimation();
+            }
+        }
+
     }
 
     public void PauseGame()
@@ -164,18 +173,11 @@ public class Player : Character
 
     protected override void Strike()
     {
-        Attack currentAtk = null;
-        for (int i = 0; i < mainAtkPoolSize; ++i)
+        status = CharacterStatus.ATTACKING;
+        StartAttackAnimation();
+        if (Random.Range(0, 100) > target.GetEvasion())
         {
-            if (!mainAtkPool[i].GetActive())
-            {
-                currentAtk = mainAtkPool[i];
-                break;
-            }
-        }
-        if (currentAtk != null)
-        {
-            currentAtk.Init(GetAttack(), facing, pos);
+            target.TakeDamage(GetAttack());
         }
     }
 
