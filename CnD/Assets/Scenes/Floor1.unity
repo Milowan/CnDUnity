@@ -4838,7 +4838,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b569736d812558f4ea27457dc84da22b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1.5
   Loop: 0
   Mute: 0
@@ -24425,6 +24425,7 @@ MonoBehaviour:
   - {fileID: 1126949864}
   - {fileID: 1598975375}
   - {fileID: 1794793653}
+  hbSlots: []
 --- !u!4 &1385525523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1170195098344397146, guid: d0a39cae05cd71649ba12f9fe78bef42,
@@ -27828,7 +27829,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b569736d812558f4ea27457dc84da22b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1.5
   Loop: 0
   Mute: 0
@@ -28537,7 +28538,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b569736d812558f4ea27457dc84da22b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1.5
   Loop: 0
   Mute: 0
