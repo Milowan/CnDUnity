@@ -16,6 +16,7 @@ public class Player : Character
     // Map Vars //
     public GameObject mapUI;
     public GameObject inventoryUI;
+    private Vector3 velocity;
 
     private float animTimer;
     private float animTimeCounter;
@@ -37,13 +38,14 @@ public class Player : Character
 
     private void FixedUpdate()
     {
-        pos.Translate(Input.GetAxis("Horizontal") * movSpeed, Input.GetAxis("Vertical") * movSpeed, 0f);
+        velocity.Set(Input.GetAxis("Horizontal") * movSpeed, Input.GetAxis("Vertical") * movSpeed, 0f);
+        pos.Translate(velocity);
+        SetDirection(velocity);
 
     }
     // Update is called once per frame
     void Update()
     {
-        SetDirection();
 
         if (Input.GetButtonDown("Interact"))
         {

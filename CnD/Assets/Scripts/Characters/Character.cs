@@ -20,8 +20,6 @@ public class Character : MonoBehaviour
     protected float combatTimer;
     protected Character target;
 
-    public Vector3 direction;
-
     private void Start()
     {
 
@@ -79,9 +77,9 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void SetDirection()
+    public void SetDirection(Vector3 v)
     {
-        direction = body.velocity;
+        Vector3 direction = v;
         if (Math.Abs(direction.x) > Math.Abs(direction.y))
         {
             if (direction.x > 0)
