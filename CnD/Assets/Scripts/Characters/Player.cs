@@ -88,6 +88,7 @@ public class Player : Character
             else if (animTimeCounter >= animTimer)
             {
                 animTimeCounter = 0;
+                status = CharacterStatus.IDLE;
                 StartIdleAnimation();
             }
         }
