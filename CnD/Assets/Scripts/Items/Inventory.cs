@@ -6,5 +6,12 @@ public class Inventory : MonoBehaviour
 {
     public bool[] isFull;
     public GameObject[] slots;
+    public GameObject[] hbSlots;
+
+
+    private void Update()
+    {
+        //hbSlots = slots;
+    }
 
 }
