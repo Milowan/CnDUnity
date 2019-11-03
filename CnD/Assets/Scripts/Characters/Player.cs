@@ -18,12 +18,14 @@ public class Player : Character
     public GameObject inventoryUI;
     private Vector3 velocity;
 
-
-
+    private float animTimer;
+    private float animTimeCounter;
 
     // Start is called before the first frame update
     void Start()
     {
+        animTimer = 0.5f;
+        m_animator = GetComponent<Animator>();
         movSpeed = 0.2f;
         stats = new Stats();
         SetStats();
@@ -79,6 +81,19 @@ public class Player : Character
                 PauseGame();
             }
         }
+        if (status == CharacterStatus.ATTACKING)
+        {
+            if (animTimeCounter < animTimer)
+            {
+                animTimeCounter += Time.deltaTime;
+            }
+            else if (animTimeCounter >= animTimer)
+            {
+                animTimeCounter = 0;
+                StartIdleAnimation();
+            }
+        }
+
     }
 
     public void PauseGame()
@@ -158,6 +173,8 @@ public class Player : Character
 
     protected override void Strike()
     {
+        status = CharacterStatus.ATTACKING;
+        StartAttackAnimation();
         if (Random.Range(0, 100) > target.GetEvasion())
         {
             target.TakeDamage(GetAttack());
