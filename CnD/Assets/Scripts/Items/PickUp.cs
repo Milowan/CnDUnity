@@ -27,7 +27,7 @@ public class PickUp : MonoBehaviour
                     Debug.Log("Picked up");
                     break;
                 }
-                else
+                else if (inventory.isFull[9] == true)
                 {
                     Debug.Log("Cant Add Item");
                 }
