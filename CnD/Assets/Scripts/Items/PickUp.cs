@@ -10,8 +10,6 @@ public class PickUp : MonoBehaviour
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
-        hotbar = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,7 +23,6 @@ public class PickUp : MonoBehaviour
                     // Item can be added
                     inventory.isFull[i] = true;
                     Instantiate(itemButton, inventory.slots[i].transform, false);
-                    Instantiate(itemButton, hotbar.slots[i].transform, false);
                     Destroy(gameObject);
                     Debug.Log("Picked up");
                     break;
