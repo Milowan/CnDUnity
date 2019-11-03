@@ -5,10 +5,12 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
     private Inventory inventory;
+    private Inventory hotbar;
     public GameObject itemButton;
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        hotbar = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
 
     }
 
@@ -23,6 +25,7 @@ public class PickUp : MonoBehaviour
                     // Item can be added
                     inventory.isFull[i] = true;
                     Instantiate(itemButton, inventory.slots[i].transform, false);
+                    Instantiate(itemButton, hotbar.slots[i].transform, false);
                     Destroy(gameObject);
                     Debug.Log("Picked up");
                     break;
