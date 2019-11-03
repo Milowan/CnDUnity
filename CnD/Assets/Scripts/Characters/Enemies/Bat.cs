@@ -18,7 +18,7 @@ public class Bat : Enemy
         health = maxHealth;
         pos = GetComponent<Transform>();
         body = GetComponent<Rigidbody>();
-        maxFight = GetComponent<SphereCollider>().radius / 2;
+        maxFight = GetComponent<SphereCollider>().radius * 1.5f;
         tDelayed = movDelay;
         targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f);
         stats = new Stats();
