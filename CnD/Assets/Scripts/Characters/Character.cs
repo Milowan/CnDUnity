@@ -9,7 +9,7 @@ public class Character : MonoBehaviour
     public CharacterStatus status;
     public Direction facing;
     protected float maxHealth;
-    public float health;
+    protected float health;
     protected float movSpeed;
     protected Transform pos;
     protected Rigidbody body;

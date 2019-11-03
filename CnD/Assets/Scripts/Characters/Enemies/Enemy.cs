@@ -37,8 +37,8 @@ public class Enemy : Character
             }
             else if (status == CharacterStatus.FIGHTING)
             {
-                Strike();
                 Chase();
+                Strike();
             }
             else if (status == CharacterStatus.ATTACKING)
             {
@@ -95,7 +95,6 @@ public class Enemy : Character
 
     protected virtual void AttackLogic()
     {
-        StartAttackAnimation();
         if (Random.Range(0, 100) > target.GetEvasion())
         {
             target.TakeDamage(GetAttack());
@@ -106,6 +105,7 @@ public class Enemy : Character
 
     protected override void Strike()
     {
+        StartAttackAnimation();
         if (target != null)
         {
             if (CDTimer >= attackCD)
