@@ -190,9 +190,19 @@ public class Player : Character
     {
         status = CharacterStatus.ATTACKING;
         StartAttackAnimation();
-        if (currentAttackEffect != null)
+        if (currentAttackEffect == null)
         {
-            currentAttackEffect = Instantiate(attackEffect, transform.position, Quaternion.identity);
+            Vector3 stabPos = transform.position;
+            stabPos.y = transform.position.y + 0.3f;
+            if (facing == Direction.RIGHT)
+            {
+                stabPos.x = transform.position.x + 1f;
+            }
+            else if (facing == Direction.LEFT)
+            {
+                stabPos.x = transform.position.x - 1f;
+            }
+            currentAttackEffect = Instantiate(attackEffect, stabPos, Quaternion.identity);
         }
         if (Random.Range(0, 100) > target.GetEvasion())
         {
