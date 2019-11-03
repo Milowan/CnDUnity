@@ -11,6 +11,7 @@ public class Wolf : Enemy
         attackCD = 1.5f;
         CDTimer = 0f;
         health = maxHealth;
+        movSpeed = 0.07f;
         pos = GetComponent<Transform>();
         body = GetComponent<Rigidbody>();
         tDelayed = movDelay;
