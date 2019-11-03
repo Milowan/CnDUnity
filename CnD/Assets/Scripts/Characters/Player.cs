@@ -12,6 +12,9 @@ public class Player : Character
     public AudioSource playerAudio;
     private Interactable interactable;
 
+    public GameObject attackEffect;
+    private GameObject currentAttackEffect;
+
     // Inventory Vars //
     // Map Vars //
     public GameObject mapUI;
@@ -89,6 +92,7 @@ public class Player : Character
             {
                 animTimeCounter = 0;
                 status = CharacterStatus.IDLE;
+                Destroy(currentAttackEffect);
                 StartIdleAnimation();
             }
         }
@@ -182,6 +186,10 @@ public class Player : Character
     {
         status = CharacterStatus.ATTACKING;
         StartAttackAnimation();
+        if (currentAttackEffect != null)
+        {
+            currentAttackEffect = Instantiate(attackEffect, transform.position, Quaternion.identity);
+        }
         if (Random.Range(0, 100) > target.GetEvasion())
         {
             target.TakeDamage(GetAttack());

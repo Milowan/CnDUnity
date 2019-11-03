@@ -24234,7 +24234,7 @@ Animator:
   m_GameObject: {fileID: 1363761251}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 574e08f229a57f048b93e1191029879f, type: 2}
+  m_Controller: {fileID: 9100000, guid: e78e28511dad31349a7cd7e8b5ea6d95, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -24287,6 +24287,8 @@ MonoBehaviour:
   status: 0
   facing: 0
   playerAudio: {fileID: 1363761258}
+  attackEffect: {fileID: 1227363226060393352, guid: c2330f207cbf4184d859ac2bbc7a5eb2,
+    type: 3}
   mapUI: {fileID: 1250817222}
   inventoryUI: {fileID: 840457700}
 --- !u!4 &1363761257
