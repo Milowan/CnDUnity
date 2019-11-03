@@ -88,6 +88,7 @@ public class Player : Character
             else if (animTimeCounter >= animTimer)
             {
                 animTimeCounter = 0;
+                status = CharacterStatus.IDLE;
                 StartIdleAnimation();
             }
         }
@@ -112,16 +113,24 @@ public class Player : Character
     }
     public void MapMenu()
     {
-        gamePaused = true;
-        mapUI.SetActive(true);
-        Time.timeScale = 0f;
+        if (gamePaused == false)
+        {
+            gamePaused = true;
+            mapUI.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
     }
 
     public void CloseMapMenu()
     {
-        gamePaused = false;
-        mapUI.SetActive(false);
-        Time.timeScale = 1f;
+        if (gamePaused == true)
+        {
+            gamePaused = false;
+            mapUI.SetActive(false);
+            Time.timeScale = 1f;
+        }
+
     }
 
 

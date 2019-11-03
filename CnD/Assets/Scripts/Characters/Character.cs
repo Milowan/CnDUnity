@@ -68,6 +68,8 @@ public class Character : MonoBehaviour
         m_animator.SetBool("Attack", false);
         m_animator.SetBool("Dead", false);
         m_animator.SetBool("Idle", false);
+        m_animator.SetBool("Walking", false);
+
     }
 
     protected void InitAtkPool(List<Attack> pool, int poolSize, GameObject prefab)
@@ -92,6 +94,10 @@ public class Character : MonoBehaviour
         Vector3 direction = v;
         if (Math.Abs(direction.x) > Math.Abs(direction.y))
         {
+            if (status != CharacterStatus.ATTACKING && status != CharacterStatus.FIGHTING)
+            {
+                StartWalkAnimation();
+            }
             if (direction.x > 0)
             {
                 facing = Direction.RIGHT;
@@ -105,6 +111,10 @@ public class Character : MonoBehaviour
         }
         else if (Math.Abs(direction.x) < Math.Abs(direction.y))
         {
+            if (status != CharacterStatus.ATTACKING && status != CharacterStatus.FIGHTING)
+            {
+                StartWalkAnimation();
+            }
             if (direction.y > 0)
             {
                 facing = Direction.UP;
@@ -113,6 +123,14 @@ public class Character : MonoBehaviour
             {
                 facing = Direction.DOWN;
             }
+        }
+        else 
+        {
+            if (status != CharacterStatus.ATTACKING && status != CharacterStatus.FIGHTING)
+            {
+                StartIdleAnimation();
+            }
+
         }
     }
 

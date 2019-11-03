@@ -24425,7 +24425,6 @@ MonoBehaviour:
   - {fileID: 1126949864}
   - {fileID: 1598975375}
   - {fileID: 1794793653}
-  hbSlots: []
 --- !u!4 &1385525523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1170195098344397146, guid: d0a39cae05cd71649ba12f9fe78bef42,
@@ -24536,7 +24535,8 @@ AudioSource:
   m_GameObject: {fileID: 1396236750}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 66a6880805df2254cabf7b45ebfbfd0a,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: c2210e9bbe417e74190f9ea8c7c02a50, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2

@@ -15,6 +15,7 @@ public class Dais : Interactable
         {
             GetComponent<SpriteRenderer>().sprite = spOn;
             hasGem = true;
+            Destroy(response.gameObject);
         }
                
     }
