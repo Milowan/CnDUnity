@@ -7,6 +7,8 @@ public class Witch : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        animTimer = 0.2f;
+        m_animator = GetComponent<Animator>();
         maxHealth = 10f;
         attackCD = 1f;
         CDTimer = 0f;

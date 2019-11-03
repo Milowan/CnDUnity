@@ -7,6 +7,8 @@ public class Wolf : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        animTimer = 0.2f;
+        m_animator = GetComponent<Animator>();
         maxHealth = 15f;
         attackCD = 1.5f;
         CDTimer = 0f;

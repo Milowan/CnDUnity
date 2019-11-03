@@ -16,7 +16,7 @@ public class Enemy : Character
     protected float tDelayed;
     protected float attackCD;
     protected float CDTimer;
-    protected float maxFight = 2;
+    protected float maxFight;
 
 
 
@@ -37,12 +37,8 @@ public class Enemy : Character
             }
             else if (status == CharacterStatus.FIGHTING)
             {
-                Chase();
                 Strike();
-            }
-            else if (status == CharacterStatus.ATTACKING)
-            {
-                AttackLogic();
+                Chase();
             }
             else if (status == CharacterStatus.DEAD)
             {
@@ -91,26 +87,17 @@ public class Enemy : Character
         
     }
 
-
-
-    protected virtual void AttackLogic()
-    {
-        if (Random.Range(0, 100) > target.GetEvasion())
-        {
-            target.TakeDamage(GetAttack());
-        }
-
-        status = CharacterStatus.FIGHTING;
-    }
-
     protected override void Strike()
     {
-        StartAttackAnimation();
+     //   StartAttackAnimation();
         if (target != null)
         {
             if (CDTimer >= attackCD)
             {
-                status = CharacterStatus.ATTACKING;
+                if (Random.Range(0, 100) > target.GetEvasion())
+                {
+                    target.TakeDamage(GetAttack());
+                }
                 CDTimer = 0;
             }
             else
