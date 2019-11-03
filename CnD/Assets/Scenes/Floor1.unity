@@ -21928,6 +21928,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1838465221, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
+      propertyPath: m_Volume
+      value: 0.02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
 --- !u!1001 &976723859
@@ -22663,6 +22667,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1838465221, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
+      propertyPath: m_Volume
+      value: 0.02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
 --- !u!1 &1087378848
@@ -22885,6 +22893,10 @@ PrefabInstance:
     - target: {fileID: 1838465221, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838465221, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
+      propertyPath: m_Volume
+      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
@@ -24135,6 +24147,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1838465221, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
+      propertyPath: m_Volume
+      value: 0.02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
 --- !u!1 &1363761251
@@ -24301,7 +24317,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2e5ce14f4327c304d90483d26fa3f194, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1.1
   Loop: 1
   Mute: 0
@@ -24522,7 +24538,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c2210e9bbe417e74190f9ea8c7c02a50, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -25502,6 +25518,10 @@ PrefabInstance:
     - target: {fileID: 1838465221, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838465221, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
+      propertyPath: m_Volume
+      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
@@ -27949,6 +27969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ebaba97aad29624681aa061934025ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenResolutionDD: {fileID: 0}
 --- !u!1 &1743700910
 GameObject:
   m_ObjectHideFlags: 0
@@ -28280,6 +28301,10 @@ PrefabInstance:
     - target: {fileID: 1838465221, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838465221, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
+      propertyPath: m_Volume
+      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd5a328190abab41ae789ad9e243e47, type: 3}
