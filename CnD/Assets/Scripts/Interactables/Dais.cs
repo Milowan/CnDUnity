@@ -7,10 +7,11 @@ public class Dais : Interactable
     public Sprite spOn;
     public bool hasGem;
 
+    private Player player;
+    private Inventory items;
 
     private void OnTriggerEnter(Collider response)
     {
-
         if (response.CompareTag("Gem") && hasGem == false)
         {
             GetComponent<SpriteRenderer>().sprite = spOn;
