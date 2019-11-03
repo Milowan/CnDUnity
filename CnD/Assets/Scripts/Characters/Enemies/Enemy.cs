@@ -25,7 +25,7 @@ public class Enemy : Character
     {
         currentV = body.velocity;
         current = body.position;
-        SetDirection();
+        SetDirection(body.velocity);
         if (tDelayed >= movDelay)
         {
             if (status == CharacterStatus.IDLE)

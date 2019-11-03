@@ -16,6 +16,7 @@ public class Player : Character
     // Map Vars //
     public GameObject mapUI;
     public GameObject inventoryUI;
+    private Vector3 velocity;
 
 
 
@@ -35,8 +36,9 @@ public class Player : Character
 
     private void FixedUpdate()
     {
-        pos.Translate(Input.GetAxis("Horizontal") * movSpeed, Input.GetAxis("Vertical") * movSpeed, 0f);
-        SetDirection();
+        velocity.Set(Input.GetAxis("Horizontal") * movSpeed, Input.GetAxis("Vertical") * movSpeed, 0f);
+        pos.Translate(velocity);
+        SetDirection(velocity);
 
     }
     // Update is called once per frame
