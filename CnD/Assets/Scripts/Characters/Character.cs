@@ -20,6 +20,10 @@ public class Character : MonoBehaviour
     protected float combatTimer;
     protected Character target;
 
+
+    protected float animTimer;
+    protected float animTimeCounter;
+
     private void Start()
     {
 
@@ -39,6 +43,12 @@ public class Character : MonoBehaviour
     {
         ResetAnimations();
         m_animator.SetBool("Attack", true);
+    }
+
+    protected virtual void StartWalkAnimation()
+    {
+        ResetAnimations();
+        m_animator.SetBool("Walking", true);
     }
 
     protected virtual void StartIdleAnimation()

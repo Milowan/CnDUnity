@@ -25,7 +25,6 @@ public class Enemy : Character
     {
         currentV = body.velocity;
         current = body.position;
-        //SetDirection(body.velocity);
         if (tDelayed >= movDelay)
         {
             if (status == CharacterStatus.IDLE)
@@ -106,6 +105,7 @@ public class Enemy : Character
 
     protected override void Strike()
     {
+        StartAttackAnimation();
         if (target != null)
         {
             if (CDTimer >= attackCD)

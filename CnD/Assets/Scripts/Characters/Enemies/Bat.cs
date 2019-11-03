@@ -9,6 +9,7 @@ public class Bat : Enemy
     private float swoopEndRange;
     private void Start()
     {
+        animTimer = 0.2f;
         maxHealth = 10f;
         attackCD = 2f;
         CDTimer = 0f;
@@ -24,9 +25,39 @@ public class Bat : Enemy
         SetStats();
     }
 
+    private void Update()
+    {
+        if (status == CharacterStatus.DEAD)
+        {
+            if (animTimeCounter < animTimer)
+            {
+                animTimeCounter += Time.deltaTime;
+            }
+            else if (animTimeCounter >= animTimer)
+            {
+                animTimeCounter = 0;
+                Destroy(this);
+            }
+
+        }
+        if (status == CharacterStatus.ATTACKING)
+        {
+            if (animTimeCounter < animTimer)
+            {
+                animTimeCounter += Time.deltaTime;
+            }
+            else if (animTimeCounter >= animTimer)
+            {
+                animTimeCounter = 0;
+                StartIdleAnimation();
+            }
+        }
+    }
+
     protected override void Die()
     {
         status = CharacterStatus.DEAD;
+        StartDeathAnimation();
     }
 
     protected override void SetStats()

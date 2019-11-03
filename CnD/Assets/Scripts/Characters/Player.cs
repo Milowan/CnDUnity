@@ -18,8 +18,6 @@ public class Player : Character
     public GameObject inventoryUI;
     private Vector3 velocity;
 
-    private float animTimer;
-    private float animTimeCounter;
 
     // Start is called before the first frame update
     void Start()
