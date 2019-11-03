@@ -23650,6 +23650,7 @@ MonoBehaviour:
   offAtk: {fileID: 0}
   playerAudio: {fileID: 1363761258}
   mapUI: {fileID: 1250817222}
+  inventoryUI: {fileID: 840457700}
 --- !u!4 &1363761257
 Transform:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class Player : Character
     // Inventory Vars //
     // Map Vars //
     public GameObject mapUI;
+    public GameObject inventoryUI;
+
 
 
 
@@ -71,14 +73,14 @@ public class Player : Character
             if (gamePaused)
             {
                 UnpauseGame();
-                //inventoryUI.SetActive(false);
+                inventoryUI.SetActive(false);
                 //hotbarUI.SetActive(false);
 
             }
             else
             {
                 PauseGame();
-                //hotbarUI.SetActive(true);
+                inventoryUI.SetActive(true);
                 //inventoryUI.SetActive(true);
             }
         }

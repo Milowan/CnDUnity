@@ -17,7 +17,7 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
 public void SpawnDroppedItem()
     {
-        Vector3 playerPos = new Vector3(player.position.x, player.position.y + 1, player.position.z);
+        Vector3 playerPos = new Vector3(player.position.x, player.position.y +2, player.position.z);
         Instantiate(item, playerPos, Quaternion.identity);
     }
 }
