@@ -10,12 +10,6 @@ public class Player : Character
     //private Armour *armour;
     //private Helmet *helmet;
     public AudioSource playerAudio;
-    public int mainAtkPoolSize;
-    public int offAtkPoolSize;
-    public GameObject mainAtk;
-    public GameObject offAtk;
-    protected List<Attack> mainAtkPool;
-    protected List<Attack> offAtkPool;
     private Interactable interactable;
 
     // Inventory Vars //
@@ -37,8 +31,6 @@ public class Player : Character
         pos = GetComponent<Transform>();
         body = GetComponent<Rigidbody>();
         pos.tag = "Player";
-        InitAtkPool(mainAtkPool, mainAtkPoolSize, mainAtk);
-        InitAtkPool(offAtkPool, offAtkPoolSize, offAtk);
     }
 
     private void FixedUpdate()
@@ -164,18 +156,9 @@ public class Player : Character
 
     protected override void Strike()
     {
-        Attack currentAtk = null;
-        for (int i = 0; i < mainAtkPoolSize; ++i)
+        if (Random.Range(0, 100) > target.GetEvasion())
         {
-            if (!mainAtkPool[i].GetActive())
-            {
-                currentAtk = mainAtkPool[i];
-                break;
-            }
-        }
-        if (currentAtk != null)
-        {
-            currentAtk.Init(GetAttack(), facing, pos);
+            target.TakeDamage(GetAttack());
         }
     }
 

@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class Witch : Enemy
 {
-    public int mainAtkPoolSize;
-    public int offAtkPoolSize;
-    public GameObject mainAtk;
-    public GameObject offAtk;
-    private List<Attack> mainAtkPool;
-    private List<Attack> offAtkPool;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +17,6 @@ public class Witch : Enemy
         targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f);
         stats = new Stats();
         SetStats();
-        InitAtkPool(mainAtkPool, mainAtkPoolSize, mainAtk);
-        InitAtkPool(offAtkPool, offAtkPoolSize, offAtk);
     }
 
     // Update is called once per frame
