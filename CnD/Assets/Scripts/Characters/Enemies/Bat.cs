@@ -5,20 +5,18 @@ using UnityEngine;
 public class Bat : Enemy
 {
     public AudioSource batSFX;
-    private Vector3 swoopEnd;
-    private float swoopEndRange;
     private void Start()
     {
         animTimer = 0.2f;
+        m_animator = GetComponent<Animator>();
         maxHealth = 10f;
         attackCD = 2f;
         CDTimer = 0f;
         movSpeed = 0.05f;
-        swoopEndRange = 1f;
         health = maxHealth;
         pos = GetComponent<Transform>();
         body = GetComponent<Rigidbody>();
-        maxFight = GetComponent<SphereCollider>().radius / 2;
+        maxFight = 4f;
         tDelayed = movDelay;
         targetPos.Set(Random.Range(wanderRangeMin, wanderRangeMax), Random.Range(wanderRangeMin, wanderRangeMax), 0f);
         stats = new Stats();
