@@ -17,12 +17,14 @@ public class Player : Character
     public GameObject mapUI;
     public GameObject inventoryUI;
 
-
-
+    private float animTimer;
+    private float animTimeCounter;
 
     // Start is called before the first frame update
     void Start()
     {
+        animTimer = 0.5f;
+        m_animator = GetComponent<Animator>();
         movSpeed = 0.2f;
         stats = new Stats();
         SetStats();
@@ -36,12 +38,12 @@ public class Player : Character
     private void FixedUpdate()
     {
         pos.Translate(Input.GetAxis("Horizontal") * movSpeed, Input.GetAxis("Vertical") * movSpeed, 0f);
-        SetDirection();
 
     }
     // Update is called once per frame
     void Update()
     {
+        SetDirection();
 
         if (Input.GetButtonDown("Interact"))
         {
@@ -77,6 +79,19 @@ public class Player : Character
                 PauseGame();
             }
         }
+        if (status == CharacterStatus.ATTACKING)
+        {
+            if (animTimeCounter < animTimer)
+            {
+                animTimeCounter += Time.deltaTime;
+            }
+            else if (animTimeCounter >= animTimer)
+            {
+                animTimeCounter = 0;
+                StartIdleAnimation();
+            }
+        }
+
     }
 
     public void PauseGame()
@@ -156,6 +171,8 @@ public class Player : Character
 
     protected override void Strike()
     {
+        status = CharacterStatus.ATTACKING;
+        StartAttackAnimation();
         if (Random.Range(0, 100) > target.GetEvasion())
         {
             target.TakeDamage(GetAttack());
