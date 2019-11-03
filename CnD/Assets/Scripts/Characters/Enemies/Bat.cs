@@ -47,7 +47,7 @@ public class Bat : Enemy
             else if (animTimeCounter >= animTimer)
             {
                 animTimeCounter = 0;
-                StartIdleAnimation();
+                //StartIdleAnimation();
             }
         }
     }
@@ -55,7 +55,7 @@ public class Bat : Enemy
     protected override void Die()
     {
         status = CharacterStatus.DEAD;
-        StartDeathAnimation();
+        //StartDeathAnimation();
     }
 
     protected override void SetStats()
