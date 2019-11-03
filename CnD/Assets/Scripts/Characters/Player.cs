@@ -14,6 +14,12 @@ public class Player : Character
     //private Armour *armour;
     //private Helmet *helmet;
     public AudioSource playerAudio;
+    public int mainAtkPoolSize;
+    public int offAtkPoolSize;
+    public GameObject mainAtk;
+    public GameObject offAtk;
+    protected List<Attack> mainAtkPool;
+    protected List<Attack> offAtkPool;
 
     private Interactable interactable;
 

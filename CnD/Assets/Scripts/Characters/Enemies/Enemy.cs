@@ -8,9 +8,9 @@ public class Enemy : Character
     public float wanderRangeMax;
     public float wanderRangeMin;
     protected Vector3 targetPos;
-    private Vector3 current;
-    private Vector3 currentV;
-    private Vector3 correction;
+    protected Vector3 current;
+    protected Vector3 currentV;
+    protected Vector3 correction;
     private bool hitWall = false;
     public float movDelay;
     protected float tDelayed;
@@ -24,6 +24,7 @@ public class Enemy : Character
     void FixedUpdate()
     {
         currentV = body.velocity;
+        current = body.position;
         SetDirection();
         if (tDelayed >= movDelay)
         {
@@ -37,7 +38,12 @@ public class Enemy : Character
             }
             else if (status == CharacterStatus.FIGHTING)
             {
+                Chase();
                 Strike();
+            }
+            else if (status == CharacterStatus.ATTACKING)
+            {
+                AttackLogic();
             }
             else if (status == CharacterStatus.DEAD)
             {
@@ -59,7 +65,7 @@ public class Enemy : Character
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    protected virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Collision")
         {
@@ -86,34 +92,28 @@ public class Enemy : Character
         
     }
 
-    protected override void Strike()
+    protected virtual void AttackLogic()
     {
-        if (target != null)
-        {
-            if (CDTimer >= attackCD)
-            {
-                Attack currentAtk = null;
-                for (int i = 0; i < mainAtkPoolSize; ++i)
-                {
-                    if (!mainAtkPool[i].GetActive())
-                    {
-                        currentAtk = mainAtkPool[i];
-                        break;
-                    }
-                }
-                if (currentAtk != null)
-                {
-                    currentAtk.Init(GetAttack(), facing, pos);
-                    CDTimer = 0;
-                }
-            }
-            else
-            {
-                CDTimer += Time.deltaTime;
-            }
 
-        }
     }
+
+    //protected override void Strike()
+    //{
+            //Attack currentAtk = null;
+            //for (int i = 0; i<mainAtkPoolSize; ++i)
+            //{
+            //    if (!mainAtkPool[i].GetActive())
+            //    {
+            //        currentAtk = mainAtkPool[i];
+            //        break;
+            //    }
+            //}
+            //if (currentAtk != null)
+            //{
+            //    currentAtk.Init(GetAttack(), facing, pos);
+            //    CDTimer = 0;
+            //}
+    //}
 
     private void Steer()
     {
@@ -154,14 +154,12 @@ public class Enemy : Character
 
     private void Wander()
     {
-        current = body.position;
         Steer();
     }
 
     private void Chase()
     {
         targetPos = target.GetComponent<Transform>().position;
-        current = body.position;
         Steer();
     }
 

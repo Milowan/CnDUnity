@@ -5,6 +5,7 @@ using UnityEngine;
 public enum CharacterStatus
 {
     IDLE,
+    ATTACKING,
     FIGHTING,
     CHASING,
     MOVING,

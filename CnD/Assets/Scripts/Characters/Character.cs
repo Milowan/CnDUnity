@@ -11,12 +11,6 @@ public class Character : MonoBehaviour
     protected float maxHealth;
     protected float health;
     protected float movSpeed;
-    public int mainAtkPoolSize;
-    public int offAtkPoolSize;
-    public GameObject mainAtk;
-    public GameObject offAtk;
-    protected List<Attack> mainAtkPool;
-    protected List<Attack> offAtkPool;
     protected Transform pos;
     protected Rigidbody body;
 

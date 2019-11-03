@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Golem : Enemy
 {
+    public int mainAtkPoolSize;
+    public int offAtkPoolSize;
+    public GameObject mainAtk;
+    public GameObject offAtk;
+    private List<Attack> mainAtkPool;
+    private List<Attack> offAtkPool;
     // Start is called before the first frame update
     void Start()
     {
