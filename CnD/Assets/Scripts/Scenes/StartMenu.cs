@@ -49,20 +49,11 @@ public class StartMenu : MonoBehaviour
     }
     public void Play()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Floor1");
     }
 
     public void Quit()
     {
         Application.Quit();
     }
-
-    public void Restart()
-    {
-        Scene scene;
-        scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
-    }
-
-
 }

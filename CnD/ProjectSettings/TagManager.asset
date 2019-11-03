@@ -11,6 +11,7 @@ TagManager:
   - Gem
   - Collision
   - FoW
+  - WinCondition
   layers:
   - Default
   - TransparentFX

@@ -158,6 +158,10 @@ public class Player : Character
         {
             target = other.gameObject.GetComponent<Enemy>();
         }
+        if(other.gameObject.tag == "WinCondition")
+        {
+            SceneManager.LoadScene("WinScreen");
+        }
     }
     
 
@@ -200,7 +204,7 @@ public class Player : Character
     {
         //restart level
         status = CharacterStatus.DEAD;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("DeathScreen");
     }
 
     private void Interact()
