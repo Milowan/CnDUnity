@@ -25,7 +25,7 @@ public class Enemy : Character
     {
         currentV = body.velocity;
         current = body.position;
-        SetDirection(body.velocity);
+        //SetDirection(body.velocity);
         if (tDelayed >= movDelay)
         {
             if (status == CharacterStatus.IDLE)
@@ -130,6 +130,7 @@ public class Enemy : Character
         currentV = Vector3.ClampMagnitude(currentV + correction, movSpeed);
         pos.position += currentV;
 
+        SetDirection(currentV);
         if ((targetPos - current).magnitude < maxFight)
         {
             if (status == CharacterStatus.IDLE)
