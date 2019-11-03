@@ -50,14 +50,6 @@ public class Character : MonoBehaviour
         m_animator.SetBool("Dead", true);
     }
 
-    protected void InitAtkPool(List<Attack> pool, int poolSize, GameObject prefab)
-    {
-       for (int i = 0; i < poolSize; ++i)
-        {
-            pool.Add(Instantiate(prefab, new Vector3(0f, -1000f, 0f), Quaternion.identity).GetComponent<Attack>());
-        }
-    }
-
     public void TakeDamage(float dmg)
     {
         health -= dmg / GetDefense();
