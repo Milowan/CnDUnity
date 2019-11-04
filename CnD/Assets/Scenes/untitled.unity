@@ -225,11 +225,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status: 0
-  inventoryUI: {fileID: 0}
-  hotbarUI: {fileID: 0}
-  inventory: {fileID: 0}
-  GemsInventory: {fileID: 0}
+  facing: 0
+  health: 0
+  playerAudio: {fileID: 0}
+  attackEffect: {fileID: 0}
+  attackAudio: {fileID: 0}
   mapUI: {fileID: 0}
+  inventoryUI: {fileID: 0}
 --- !u!4 &2066889306
 Transform:
   m_ObjectHideFlags: 0
