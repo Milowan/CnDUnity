@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Slot : MonoBehaviour
 {
+    Player player;
     private Inventory inventory;
     public int i;
     private void Start()
@@ -26,4 +27,19 @@ public class Slot : MonoBehaviour
             Destroy(child.gameObject);
         }
     }
+    //public void UseItem()
+    //{
+    //    if(gameObject.tag == "Potion1")
+    //    {
+    //        player.health = player.health + 20;
+    //    }
+    //    if(gameObject.tag == "Armour1")
+    //    {
+
+    //    }
+    //    if(gameObject.tag == "Weapon1")
+    //    {
+
+    //    }
+    //}
 }

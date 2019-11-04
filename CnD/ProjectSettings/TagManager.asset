@@ -12,6 +12,9 @@ TagManager:
   - Collision
   - FoW
   - WinCondition
+  - Potion1
+  - Armour1
+  - Weapon1
   layers:
   - Default
   - TransparentFX
