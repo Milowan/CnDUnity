@@ -56,4 +56,8 @@ public class StartMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    public void startMenuQuit()
+    {
+        SceneManager.LoadScene("StartMenu");
+    }
 }
