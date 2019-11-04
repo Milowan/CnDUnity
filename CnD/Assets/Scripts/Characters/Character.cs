@@ -96,7 +96,7 @@ public class Character : MonoBehaviour
         {
             if (status != CharacterStatus.ATTACKING && status != CharacterStatus.FIGHTING)
             {
-                //StartWalkAnimation();
+                StartWalkAnimation();
             }
             if (direction.x > 0)
             {
@@ -113,7 +113,7 @@ public class Character : MonoBehaviour
         {
             if (status != CharacterStatus.ATTACKING && status != CharacterStatus.FIGHTING)
             {
-                //StartWalkAnimation();
+                StartWalkAnimation();
             }
             if (direction.y > 0)
             {
@@ -128,7 +128,7 @@ public class Character : MonoBehaviour
         {
             if (status != CharacterStatus.ATTACKING && status != CharacterStatus.FIGHTING)
             {
-                //StartIdleAnimation();
+                StartIdleAnimation();
             }
 
         }
