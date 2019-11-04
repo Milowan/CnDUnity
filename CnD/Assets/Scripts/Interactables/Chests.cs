@@ -19,7 +19,6 @@ public class Chests : Interactable
                 GetComponent<SpriteRenderer>().sprite = spOpen;
                 Instantiate(chestItems[0], position, Quaternion.identity);
                 chestSFX.Play();
-            
             }
         }
 

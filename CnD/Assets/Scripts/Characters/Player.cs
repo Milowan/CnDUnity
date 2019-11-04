@@ -14,6 +14,7 @@ public class Player : Character
 
     public GameObject attackEffect;
     private GameObject currentAttackEffect;
+    public AudioSource attackAudio;
 
     // Inventory Vars //
     // Map Vars //
@@ -203,6 +204,7 @@ public class Player : Character
                 stabPos.x = transform.position.x - 1f;
             }
             currentAttackEffect = Instantiate(attackEffect, stabPos, Quaternion.identity);
+            attackAudio.Play();
         }
         if (Random.Range(0, 100) > target.GetEvasion())
         {
